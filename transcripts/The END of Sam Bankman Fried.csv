@@ -1,0 +1,688 @@
+index,sentence,length
+0,Sam Beckman Freed is facing 115 years in prison for fraud and I flew to New York City to watch it all happen live.,7.66
+1,We'll be breaking it all down here in the $40 million Bahama penthouse.,3.68
+2,"What happened with FTX, who the big players are, and everything about this trial start to finish.",5.42
+3,"But first, let me be honest, this is not a quick story.",3.66
+4,"I'm going to simplify but try not to oversimplify, which is difficult given that there are a thousand pages of transcripts and government evidence.",7.9
+5,"So to tackle this, here's what I'm going to do.",2.24
+6,I'm going to give you the prosecution and defense's arguments in order as the jury would hear them.,4.38
+7,Two competing visions for what happened with FTX.,2.78
+8,Then we'll give you the witness testimony that ultimately will decide the fate of one of the largest frauds we've ever seen.,5.28
+9,And you at home can decide what you believe.,2.76
+10,Is Sam innocent or guilty?,1.86
+11,Let's get started.,0.76
+12,"All right, this is pretty boring.",1.78
+13,They just selected the jury.,0.98
+14,"All right, this is where things get more interesting.",2.38
+15,We got opening statements today.,1.4
+16,"The prosecution's arguments is basically that Sam Begman-Freed created an elaborate fraud using two companies, FTX, where customers could go deposit their money, and Alameda Research, which then stole that money from FTX.",12.76
+17,"Now, on the surface, Alameda was a trading firm and a market maker.",3.26
+18,"Both FTX and Alameda were controlled by Sam, but it kind of looked like they were separate entities.",5.84
+19,"They were both successful, but separate.",1.9
+20,"Now, that wasn't true.",0.88
+21,"The companies weren't separate, and Alameda Research got special privileges, which they used to steal the customer's money.",6.06
+22,"By the time anyone found out, it was already too late.",2.96
+23,"According to the prosecution's lawyers, a year ago, the truth started to come out.",4.4
+24,"Customers tried to get their money back, but that money, the customer's money, was gone.",4.3
+25,The defendant had taken it.,1.64
+26,"Now, on the other side, you have the defense, who says, yeah, FTX collapsed.",4.48
+27,But Sam didn't intend to defraud anyone.,2.74
+28,"Quote, Sam believed that loans that FTX made to Alameda were permitted and backed by reasonable security.",6.1
+29,"But if that's true, why did things fail?",2.9
+30,"Well, think of FTX like a plane.",2.44
+31,Sam and his colleagues were building the plane as they were flying it.,3.48
+32,"I mean, it's so easy to blame people in hindsight, but is it that simple?",3.64
+33,"Quote, to listen to the government's openings, there were no employees.",3.16
+34,It was Sam doing everything by himself.,1.48
+35,That wasn't true.,0.8
+36,"No one person, no CEO, certainly not Sam, could be everywhere.",4.32
+37,"And as a result, some things got overlooked.",2.42
+38,And the defense is right.,0.64
+39,Eight billion things did indeed go overlooked.,2.06
+40,"But their point is this, if blame is to go anywhere, look at who was actually the CEO of Alameda Research at the time.",5.46
+41,It wasn't Sam.,0.6
+42,"It was his ex-girlfriend, Caroline Ellison.",1.98
+43,"Speaking of Caroline, she's going to be testifying later against Sam in this trial.",4.12
+44,So the defense is eager to discredit her and the other FTX executives who are also testifying against Sam.,6.24
+45,"The defense says that all these people entered cooperation agreements, which incentivizes them to testify against Sam and make him sound as bad as possible to get their sentence lessened.",9.64
+46,"Or as they would put it, quote, are they spinning things that Sam said that were good faith business decisions and now claiming they were sinister and they knew it all along?",9.3
+47,That's the story of the prosecution and the defense.,2.88
+48,Elaborate fraud or well-meaning failure.,2.34
+49,"Before you make up your mind, though, know that neither of these two have really presented much evidence.",5.22
+50,"So to believe either of their stories, that's really what we're waiting for.",3.76
+51,"And of course, that's going to come through witnesses.",2.18
+52,"Speaking of witnesses, this is where things get pretty lopsided, to be honest.",4.78
+53,The prosecution has all the witnesses.,2.78
+54,"They have pages of witnesses, while the defense basically has none, except for Sam himself, who probably shouldn't take the stand.",8.36
+55,So everyone you'll be hearing from today is testifying against Sam.,3.5
+56,"And with that in mind, let's kick off with our first witness.",2.52
+57,"It's a customer of FTX, Mark Anthony Julliard.",2.56
+58,"Now, the first thing we find out is that Mark had $100,000 on FTX right before everything collapsed.",5.02
+59,And he saw Sam Bankman-Fried tweet this.,3.1
+60,FTX is fine.,1.06
+61,Assets are fine.,0.98
+62,FTX has enough to cover all client holdings.,2.38
+63,"We don't invest client assets, even in treasuries.",2.62
+64,"And Mark, seeing this and trusting Sam, didn't withdraw his money in early November, only to realize later he couldn't withdraw it and FTX declared bankruptcy.",7.94
+65,"The point is Mark was hurt because Sam Bankman-Fried lied about FTX being fine, or so the prosecution says.",6.74
+66,"Now, the defense's turn came to cross-examine him.",2.82
+67,"And they said, hey, you knew crypto was new and also a risky asset, didn't you?",5.68
+68,Yes.,0.42
+69,You could make a lot.,1.04
+70,You could also lose a lot.,0.86
+71,Yes.,0.3
+72,The defense asked Mark if he had read the terms of service.,2.24
+73,"Mark said he did not, which I get what they're doing here.",2.84
+74,Just kind of making him seem reckless.,1.8
+75,"But I found it personally beside the point, which is that SBF lied about the health of his company.",5.7
+76,I found it unconvincing.,1.44
+77,But you guys know I'm a little biased here.,1.8
+78,"Now, up next, the prosecution calls their next witness, Adam Yedidia, who is a long-term friend of Sam Bankman-Fried.",7.8
+79,"Not only that, Adam worked at FTX, and he was asked to explain why he abruptly quit one day.",5.78
+80,"He says, quote, I learned that Alameda Research had used customer deposits to pay back its loans to creditors, which might sound bad, but it's about to get a lot worse.",9.42
+81,"All right, Adam Yedidia is still up, and he explains that early on, FTX had trouble opening its own bank account.",6.16
+82,"So to get customer money in, quote, the deposits were received in a different bank account labeled the North Dimension Bank Account.",6.86
+83,Who controlled it?,0.84
+84,"Alameda, according to Adam.",1.54
+85,"Adam claims that if he knew Alameda was spending the money, it would have raised concerns for him.",4.74
+86,Why?,0.34
+87,"Well, then the money wouldn't be there for the customer if the customer wanted it.",3.96
+88,And here's where we learned about an account called the fiatatftx.com account.,5.02
+89,This was the internal account where FTX tracked how much Alameda owed them for their customer deposits.,6.94
+90,Why is this important?,1.06
+91,"Well, Adam found out by looking at it one day that Alameda owed FTX $8 billion in 2022, which concerned him.",7.54
+92,"Quote, I had a conversation with Sam.",1.66
+93,What was your reaction to this $8 billion liability that led to your conversation with Sam?,4.08
+94,It concerned me.,0.82
+95,Why did it concern you?,1.3
+96,"It seemed like a lot of money for Alameda to be owing FTX, and I wanted to be certain that Alameda could repay that debt.",6.96
+97,"Spoiler alert, it couldn't.",2.24
+98,"Now, Sam allegedly responded at the time, we were bulletproof last year, being 2021, but we're not bulletproof this year.",7.94
+99,"In cross-examination, the defense tried to ask Adam about Sam's car, which if that feels unrelated to this point, it is.",8.68
+100,"They say, Do you know what car he did drive?",2.98
+101,No.,0.22
+102,Did you recall seeing a Toyota Corolla?,2.44
+103,"In terms of clothes, he didn't buy fancy clothes, right?",3.42
+104,I didn't see him wear fancy clothes.,1.98
+105,"To be honest, I felt this was a big miss for the defense to tackle the actual issue.",4.24
+106,"The prosecution is claiming Sam knew how bad things were and chose to lie about it, so that kind of went unanswered.",6.42
+107,"And speaking of the prosecution, Matt Huang is up next.",3.42
+108,"Now, Matt works for Paradigm, as we would learn, which invested almost $300 million in FTX.",6.62
+109,"But before they did that, they were worried about Alameda getting special treatment on FTX, to which Matt emailed them, worrying about value leakage through Alameda.",9.68
+110,"Matt claims, Quote, I recall that we were told there was no preferential treatment for Alameda.",5.66
+111,"This, we would soon find out, was a lie, when the next witness, Gary Wang, took the stand, after another disappointing cross-examination by the defense.",9.02
+112,"Now, who's Gary Wang?",1.3
+113,He's really important.,0.92
+114,He's the co-founder of both FTX and Alameda Research.,4.04
+115,He's super important because he was present for all the big moments.,3.52
+116,And he claims basically the opposite of Sam.,2.8
+117,Sam said there was no preferential treatment of Alameda.,2.14
+118,"Gary says, We gave special privileges to Alameda Research on FTX, which allowed it to withdraw unlimited amounts of funds from the platform, and we lied about this to the public.",9.14
+119,"Now, remember, the jury just heard from our last witness that there was no special privileges.",4.28
+120,"And then the co-founder's like, Yeah, we did.",2.38
+121,And we lied.,0.52
+122,We lied about it.,0.8
+123,This entire section was pretty horrible for the defense.,2.86
+124,"Gary's asked, Did you commit financial crimes while working at FTX?",4.34
+125,Yes.,0.28
+126,Did you commit these crimes by yourself or with other people?,3.34
+127,With other people.,0.6
+128,Who are the main other people?,1.42
+129,"Sam Begma-Free, Nishant Singh, and Caroline Ellison.",2.64
+130,"Now, all those other people took cooperation agreements against Sam.",3.8
+131,"So it's like they're all just, it's like all the people who are at this company are all pointing their finger at this one guy.",6.52
+132,But we're not even done yet.,1.16
+133,"Today, the prosecution shows Gary Wang's code, which he wrote for FTX, which gave Alameda Research special privileges.",7.92
+134,"In it, there's this special function they created called allowNegative, which was switched on for Alameda Research and basically no one else.",7.94
+135,"In the code, they show that if an account had that, they were allowed to have negative balances without anything happening.",6.98
+136,"Now, this meant two things.",1.14
+137,"One, if Alameda Research made a bad trade, nothing happened.",3.74
+138,"And two, it allowed Alameda to basically have infinite withdrawals from FTX.",4.94
+139,"Again, from the transcript, Question, so did this special advantage allow Alameda to make unlimited withdrawals off the FTX exchange?",7.68
+140,Yes.,0.32
+141,"If Alameda's account balance was zero or negative and it used this special advantage to withdraw Bitcoin, whose Bitcoin would it be withdrawing?",7.54
+142,"Answer, from customers.",1.72
+143,It would be withdrawing customers' Bitcoin.,2.3
+144,"Now, that says it all.",1.44
+145,And the point of this testimony is not just to highlight that Alameda could and did steal money from customers.,5.5
+146,"It was also showing that Sam was kind of willing to lie about that fact because the prosecution then shows a tweet from 2019 when Sam is asked once again about conflicts of interest running FTX and a trading firm, Alameda, which runs their trades on FTX.",15.32
+147,Sam's response was that Alameda's account is just like everyone else's.,4.3
+148,And the beating didn't stop there.,1.6
+149,The prosecution then hammered Sam on this like insurance fund thing they had.,4.64
+150,"If you don't know what that is, basically, in the event that FTX took losses, they claimed that there was this insurance fund, which they bragged in a tweet was worth over a hundred million dollars.",11.5
+151,"Gary Wang then explained that the purpose of this fund was this, quote, if an account does not get liquidated in time, that other customers of FTX won't be affected.",10.42
+152,Makes sense.,0.52
+153,And a hundred million dollar insurance fund does sound comforting.,2.84
+154,If it were true.,1.38
+155,"Turns out, FTX lied.",1.68
+156,"Question, was the number on this tweet accurate?",2.34
+157,"Answer, no.",0.62
+158,Why not?,0.54
+159,"For one, there's no FTT in the insurance fund.",3.02
+160,"And two, the number does not match.",2.44
+161,What do you mean it does not match?,1.68
+162,The number in the databases was a different number.,2.98
+163,"Question, is it a real number?",1.42
+164,"Answer, no.",0.9
+165,So it's a fake number.,0.8
+166,Yes.,0.28
+167,Was the real number higher or lower than the fake number?,2.88
+168,Lower.,0.38
+169,So they just fake the dubber to look better.,3.34
+170,"But if you're wondering how, the prosecution pulls up the code and they ask Gary, hey, it looks like it takes the daily volume, multiplies it by a random number and divides by a billion.",11.64
+171,"Answer, yes.",0.78
+172,Does that number have anything to do with the actual number of the insurance fund?,3.72
+173,No.,0.68
+174,"This was the exact moment, guys.",2.08
+175,I knew I had to go visit this trial in person.,2.28
+176,I knew things were bad with FTX.,2.16
+177,I didn't know they were make things up with random numbers levels of bad for our insurance fund.,5.98
+178,"So based on this, I took the next flight out to New York City from the Bahamas.",4.66
+179,And I can't believe what I saw.,1.42
+180,"Now, I'm going to warn you guys right now.",1.36
+181,They didn't allow us to film in here.,2.12
+182,So all I got was really just like a little bit of B-roll.,2.14
+183,"But in terms of experiencing it, I really got a feeling for what it was like in the actual courtroom, seeing Caroline, seeing Sam, seeing Gary.",8.8
+184,Which brings us to...,2.94
+185,So Gary Wang is still on the stand in cross-examination.,4.5
+186,"At this point, I'm in the courtroom with my little notebook.",2.6
+187,"And I followed the trial around enough to know that the defense really needs to land some jabs here, right?",5.62
+188,They've been taking a beating so far.,2.26
+189,"So, you know, I take my seat and I get ready for fireworks, right?",3.72
+190,This is their moment.,0.74
+191,"And to their credit, the defense brings up something called NAV, net asset value.",3.54
+192,This is their silver bullet.,1.6
+193,"Question, are you familiar with the term net asset value?",2.4
+194,Yes.,0.28
+195,That's sometimes called NAV?,1.46
+196,Yes.,0.24
+197,"It just means that your assets minus your liabilities, right?",2.8
+198,"Roughly speaking, yes.",0.96
+199,"If you have a positive NAV, you have more assets than you have liabilities, right?",3.34
+200,Yes.,0.26
+201,"The defense then goes on to get Gary to admit that technically in 2022, he calculated that Alameda's net asset value was positive.",8.26
+202,Gary says yes.,1.14
+203,And they push again.,0.7
+204,"Isn't it true that Alameda's net asset value remained positive all the way up to November of 2022, which is when things collapsed?",7.58
+205,"Answer, it depends a lot on how much value you assign to Alameda's investments.",4.0
+206,"Which is kind of true, but it's also like a lot of a dodge.",3.46
+207,Even from my very biased perspective.,2.36
+208,"You know, I was writing in here.",0.8
+209,"I was just like, I don't know.",2.28
+210,The actual answer from Gary should have been here.,2.04
+211,"Yes, that's true.",1.24
+212,Alameda's balance sheets showed a positive net asset value as late as November.,4.16
+213,But the nuance of why is what really matters here.,3.9
+214,"To understand it, we're going to have to explain liquid versus illiquid assets.",4.22
+215,"So to do that, I've flown out everyone's favorite bartender, Maxwell, to talk about it.",5.12
+216,"You know, what are you doing?",3.28
+217,Where's the bar?,0.72
+218,What bar?,0.48
+219,"We're doing the thing, right?",1.28
+220,Margo Robot in a bubble bath?,1.5
+221,Margo Robot in a...,2.76
+222,What are you talking about?,1.04
+223,"You know, the big short.",1.74
+224,Famous scene.,0.84
+225,Great movie.,0.58
+226,I know what the big short is.,1.44
+227,We're not doing the big short.,1.18
+228,I think he's still taking the Michael Lewis thing pretty seriously.,3.7
+229,I can't watch this.,0.88
+230,Just explain the thing.,1.46
+231,"Aye aye, boss.",0.76
+232,All right.,0.74
+233,"So basically, Sam Bankman Freed had found a way to borrow billions from his customers and billions from crypto lenders, but didn't have the money to pay everyone back.",10.16
+234,So he decides to bluff by loading Alameda's balance sheet with the liquid assets.,5.28
+235,"The catch was, these looked valuable on paper, but were actually unsellable and super risky.",7.86
+236,"Venture capital, Sam's crypto coins, interparty loans.",3.36
+237,"When you hear them talk about these liquid assets, think sh**.",4.84
+238,"Meanwhile, what Sam owed was all liquid.",2.04
+239,Things with immediate value.,1.16
+240,"That's how FTX could go bankrupt, even when their net asset value was positive.",5.44
+241,"Their assets were sh**, and the debts were legit.",3.28
+242,It's that simple.,0.76
+243,Got it?,0.46
+244,Good.,0.52
+245,Now f**k off.,0.92
+246,All right.,0.48
+247,I hope that helped.,0.7
+248,I certainly will never forget what I just saw.,1.9
+249,"But now, Caroline Ellison is going to take the stand and talk a great deal about these illiquid assets.",5.52
+250,"Caroline Ellison, of course, being the girlfriend of Sam, ex-girlfriend.",3.26
+251,"But more importantly, she was the CEO of Alameda Research when it and FTX collapsed.",5.76
+252,"Immediately, she admits she is guilty of fraud, money laundering.",3.96
+253,And then she says that she committed these crimes with Sam Bankman Freed.,3.94
+254,"The reason she defrauded people is she, quote, incorrectly stated the amount of our assets and our liabilities and made Alameda's balance sheets look less risky than it really was.",10.62
+255,And this is where liquid versus illiquid assets is going to start to matter.,4.58
+256,Because Caroline was in charge of creating and sending these balance sheets to lenders to get more loans.,6.42
+257,And Sam asks her to start putting their own crypto coins they had as part of their balance sheets.,5.46
+258,Things like FTT.,1.32
+259,"Now, Caroline says she did not initially do it because it was, quote, somewhat misleading because you couldn't actually sell these coins for what they were worth on paper.",10.62
+260,"And this didn't just apply to FTX's own coin, FTT.",3.54
+261,It applied to a whole host of coins they called Sam coins.,3.94
+262,"Sam coins, of course, being a nickname for coins that Sam played a large role in or created himself.",5.56
+263,"Things like Serum, Maps, Oxy, Solana.",2.44
+264,"And the prosecution asks, and were Sam coins ultimately put on Alameda's balance sheet?",4.4
+265,"She said, yeah, even though I guess initially they didn't.",3.54
+266,"So they have all these coins that they can't really sell, but that look good on paper, right?",5.56
+267,That's really important.,0.66
+268,The rough value of Sam coins on paper was in the ballpark of $10 billion.,5.4
+269,"Now, while she's preparing these misleading balance sheets, Caroline also claims she learned that Alameda Research had loaned billions of dollars to Sam, Gary, Nishad, and other entities through FTX.",13.04
+270,"According to internal spreadsheets, around $5 billion was loaned out.",4.28
+271,Why?,0.3
+272,"A lot of it was being used on investments, she said.",2.82
+273,A lot of early stage startup companies.,1.7
+274,"And of course, political donations.",2.54
+275,"If you're from America, take a big drink.",1.86
+276,This one hurts.,0.56
+277,"Because Sam said that spending money on politics was very effective, that you could get very high returns in terms of influence by spending relatively small amounts of money.",11.7
+278,I just want to pause on that moment and just say it's such a sad indictment of our government.,5.1
+279,"I mean, if you're going to get bought out as a politician, can you at least charge a lot of money?",4.36
+280,You couldn't buy my influence for less than $10 million.,2.3
+281,"I mean, have some self-respect, guys.",2.0
+282,"That's all I'm going to say, okay?",1.22
+283,We need a better standard.,1.66
+284,"But anyways, moving on, Caroline then explains that these loans to executives were a liquid.",4.68
+285,"Meaning you couldn't really sell your stake if you needed to repay the loans because either political donations or venture capital, you're just not going to really get your money back.",7.46
+286,"Over time, Caroline says that she didn't feel good about including these loans on Alameda's balance sheet because, quote, that might raise concerns for Alameda's lenders.",9.66
+287,"And quote, they made Alameda significantly riskier.",3.54
+288,Caroline was then asked about Sam Bankman-Fried's approach to risk-taking.,3.92
+289,"Quote, he described himself as risk-neutral, meaning that most people are risk-averse.",4.68
+290,But he said that he was totally comfortable taking a risk as long as he thought it was a positive EV.,5.58
+291,EV meaning expected value.,1.9
+292,"Caroline was asked if Sam gave an example of this, and he did.",3.34
+293,"He would be happy to flip a coin, and if it came up tails, the world was destroyed.",5.1
+294,"As long as if it came up heads, the world would be more than like twice as good.",5.2
+295,"Okay, the prosecution, I think, did not stay on this point enough.",4.04
+296,This is insane.,1.34
+297,"Of course, it's not risk-neutral.",1.36
+298,It's degenerate gambler behavior.,2.3
+299,This sounds like my uncle betting it all on double zero in Vegas telling me he has a system.,5.24
+300,"I mean, there's nothing risk-neutral about being willing to bet the world's destruction on a coin toss.",5.92
+301,"In fact, it was so bad, the prosecution then asked for a break.",2.98
+302,"And when they came back, the government then shows this exhibit, which is an internal note.",4.42
+303,The part in gray was written by Sam.,2.1
+304,And it's just basically a potential bad scenario for FTX and Alameda.,4.6
+305,Why was Sam thinking about this?,2.0
+306,"Well, he claimed that he thought there was a 10% risk chance that this happened, and he wanted Caroline to look at it.",6.62
+307,Some of these worst-case scenario events were like their venture capital is basically worthless.,4.84
+308,"CRM, Solana, FTT all go down 75%.",2.76
+309,You get the idea.,0.96
+310,And the reason for this at the time was not purely theoretical.,2.68
+311,Sam said he was thinking of making $3 billion more in venture investments and wanted to know how that would affect Alameda's finances.,7.06
+312,Caroline came back and basically told him it will affect them badly.,3.42
+313,"Quote, making $3 billion more venture investments would put Alameda in a significantly riskier position and make it much less likely or almost impossible that we would be able to pay off our loans.",9.52
+314,That's of course bad.,2.16
+315,And this is an extremely important moment because it's like someone clearly warning Sam that he should stop.,6.62
+316,"So he does that, right?",1.42
+317,No.,0.5
+318,He then tweeted this on January 14th.,2.36
+319,We're launching a $2 billion venture fund.,3.12
+320,"This is right after he's told you do this, you may collapse your own company because it's too risky.",4.48
+321,"Anyway, that's the end of day five.",1.82
+322,"Day six, October 11th.",2.4
+323,Caroline Ellison gets back on the stand.,1.7
+324,The jury's told about May of 2022.,2.02
+325,We're walking through the events.,1.66
+326,The crypto market has just crashed because of Terra Luna and crypto lenders are scared.,3.84
+327,"Celsius is collapsing, we covered that.",1.9
+328,Other lenders don't want to be overextended.,1.42
+329,And a lot of them decide to call back their loans.,2.38
+330,"The head of lending at Genesis, for example, a large lender to FTX and Alameda recalls $400 million of their loans.",6.88
+331,"Now, this is bad for Alameda because they don't have money and they've borrowed billions from their customers, billions from lenders.",6.94
+332,The only way they're going to pay back one of those people is to borrow more from the other.,3.36
+333,"So in this case, they're going to take more from customers.",2.04
+334,"Caroline then testifies this, quote, we didn't have the liquid assets to pay all the money back and we would be taking money from FTX.",6.98
+335,"Question, and whose funds would that be?",2.5
+336,That would be coming from customer funds.,2.28
+337,"Nevertheless, they pay back those loans anyways.",1.86
+338,"Five days later, head of lending at Genesis text them again.",2.82
+339,"He's worried, might call in more loans.",1.9
+340,"He asks them for a quote, more updated view of equity and balance sheet.",4.38
+341,"This is really important because Caroline says, you know, okay, yeah, I'll put it together.",4.04
+342,"But behind the scenes, she's really concerned because she puts together a regular balance sheet.",4.52
+343,"But when she shows it to Sam, she says, quote, think it looks bad.",3.36
+344,I don't think we can send this to Genesis.,1.42
+345,Do you agree?,0.62
+346,"And he said, yeah, that sounds right.",1.64
+347,And we're going to go through some of these balance sheets.,1.4
+348,"I know it's going to be complicated at first, but there's only a few numbers you need to know about.",3.62
+349,Here's what the original one looked like.,1.48
+350,What matters here is that their liabilities are massive.,2.56
+351,Numbers here are in millions.,1.24
+352,"So 14 billion is the total they owed and 9 billion of it are FTX exchange borrows, meaning taken from FTX customers.",9.0
+353,"Now their assets are 21 billion, which is technically more, but mostly consists of Sam coins, some of which are literally locked up.",7.64
+354,"And then also they have all these related party loans, which they're counting as assets, $4.5 billion.",4.86
+355,We've talked about that.,0.74
+356,They can't get that money back.,1.54
+357,So that is why both Sam and Caroline knew this balance sheet looked terrible.,3.96
+358,They know they don't have the actual cash or crypto to cover their debts.,3.82
+359,"According to Caroline, Sam then suggested that I should prepare some alternative ways of presenting the information and send them to him.",7.64
+360,"Caroline then creates seven alternate balance sheets and sends them all to Sam because, quote, I didn't really want to be dishonest, but I also didn't want them to know the truth.",10.2
+361,Them meaning Genesis.,1.02
+362,"And of the seven alternate balance sheets, this is the one Sam picked.",3.32
+363,"In a side-by-side, you can notice a few things.",2.16
+364,"Firstly, the related party loans is gone.",2.92
+365,So is the word exchange borrows.,2.32
+366,"Caroline claims, quote, I deleted the related party loans and I also subtracted the same amount of money from FTX borrows so that our NAV would remain the same, but our total assets and total liabilities would both get lower, which to be clear is accounting fraud.",15.7
+367,"But the reason they did this is what's actually important, which is, quote, the intended effect, this is Caroline, was to make Alameda look less risky than it was and to hide the fact that we were borrowing around $10 billion from FTX customers.",16.06
+368,And so what was the result of all that lying?,2.92
+369,"Well, she sends it off to Genesis and it backfires because they keep recalling loans.",5.8
+370,All that effort and they're still asked to repay $500 million in $250 million clips.,5.16
+371,"To be clear, this is the worst case scenario Sam had dreamed of coming true.",4.18
+372,"By September, FTX's borrows will have gone up to 13.7 billion.",4.18
+373,"If you remember, just a bit ago, three months ago, it was 9.9 billion.",4.02
+374,So things are spiraling out of control.,2.32
+375,"And by November, things hit a breaking point.",2.32
+376,"When that fake balance sheet, which they sent Genesis, got leaked to CoinDesk, a publication, and people started to read it and realized that FTX just didn't have the money and they started withdrawing from FTX.",13.72
+377,"It's worth commenting here on the irony that this fake balance sheet, which was supposed to conceal how bad things were, was ultimately their downfall because even with all the changes they made, it still looked so bad to scare customers.",12.48
+378,"You know, but ultimately the result was people just started withdrawing all their money and they couldn't, you know, fulfill that and they collapsed.",6.26
+379,"I know a lot of people will point to CZ tweeting about FTX as like the catalyst for FTX collapsing, but actually that was just extra fuel to the fire.",9.58
+380,The truth was FTX and Alameda just didn't have the money.,2.64
+381,They hadn't had the money for a long period of time.,1.7
+382,And that information got leaked through this like balance sheet.,3.56
+383,"But ultimately that wasn't the most impactful moment of Caroline's testimony because all these numbers, you know, it's hard to know how much the jury is really resonating with it.",7.5
+384,"But what I know they resonated with is what happened right after, which is when the government pulled up a grainy text between Sam and Caroline.",6.8
+385,She's saying that she's in the best mood I've been in all year.,2.42
+386,"Sam replies, why?",0.88
+387,Because she's exciting?,0.92
+388,"Quote, I think I just had an increasing dread of this day.",2.88
+389,It was weighing on me for a long time.,1.42
+390,"And now that it's actually happening, it just feels great to get it over with one way or another.",4.3
+391,Now what happened next will not be shown in court records because transcripts don't show emotions.,4.82
+392,But I wrote it down because I was there in the courtroom at the time.,2.74
+393,Caroline starts bawling at this point.,2.34
+394,"She starts expressing remorse, admitting to lying, crying over her guilt and dread.",4.18
+395,"And look, I'm not going to read you her whole statement there, but I was watching the jury and I know for a fact they were moved by this.",7.44
+396,"You know, they might not have understood all the numbers.",1.98
+397,"They might not have understood the embezzlement, but they understand when a CEO starts crying about how guilty they were about what they were doing, what they knew they were doing the whole time.",9.8
+398,And I think that was a really powerful moment.,2.62
+399,And that's basically the end of the day.,1.28
+400,"The next day, Caroline Ellison is up for cross-examination.",3.16
+401,This is really the defense's chance to kind of land some shots.,3.32
+402,And of course it doesn't happen.,1.92
+403,"They try to focus in on the fact that Caroline is just trying to get a cooperation agreement, like with the government.",5.28
+404,"The implication being that the only reason she admitted that, you know, she defrauded people, the only reason she's crying is because she wants to get a deal.",6.76
+405,"But the problem with this was that then in redirect, this gets used against the defense when the prosecution uses that to release a tape showing Ellison admitting all of this prior in an all hands meeting.",11.96
+406,"Starting last year, Alameda was kind of borrowing a bunch of money via open term loans and use that to make various illiquid investments.",11.22
+407,"So like a bunch of STX and STX US equity, a bunch of like other ventures, investments, et cetera.",8.2
+408,"Most of Alameda's loans got called and in order to like meet those lovery calls, we ended up like borrowing a bunch of funds on FTX, which led to FTX having a shortfall in user funds.",11.04
+409,"Just in general, this looked bad.",2.36
+410,"And I just want to say, I'm not trying to make the defense look bad.",3.5
+411,I understand that I have a bias.,1.14
+412,"But if you're thinking to yourself, wow, this video paints the defense as being bad, that's true.",5.86
+413,But it's not because I'm trying to select things to make them look bad.,3.92
+414,It just was like that.,1.98
+415,And there's no other way to really say that.,2.16
+416,And that's basically the end of the day.,1.34
+417,"All right, up next, the prosecution has Zach Prince on the stand, CEO of BlockFi.",5.32
+418,"Basically, the point of this was to share the fact that, you know, FTX or Alameda were sending these fake balance sheets around.",7.0
+419,BlockFi would ultimately go bankrupt because they gave a bunch of loans to Alameda.,4.24
+420,"But I think what's worth highlighting here is how convoluted some of these loans were, because it's worth understanding.",7.34
+421,The only problem is I barely understand it.,2.56
+422,"So in order to explain it, I just actually had someone else do it.",3.24
+423,"Carly Riley has been covering the trial as well through her channel, Overpriced JPEGs.",3.68
+424,And she's here to explain sort of how convoluted things were.,3.84
+425,Let me see if I can get this in one shot.,1.3
+426,"OK, FTX US gives a $400 million line of credit to BlockFi, who then starts lending $800 million to Alameda, who in exchange for that $800 million posts collateral back to BlockFi, who hold it in an account that they have on FTX, who lends basically all customer deposits,",22.8
+427,"including BlockFi's collateral deposits, to Alameda, who then uses that money they borrowed from FTX to partially pay back lenders, including BlockFi, who they paid back $150 million to in November of 2022 as everything was imploding, but they never finished paying them back because they went bankrupt.",18.48
+428,"All right, big thanks to Carly for that.",1.6
+429,"To be honest, even still afterwards, I don't fully understand exactly how the BlockFi thing worked.",6.62
+430,"But usually when things are unnecessarily complicated, it's because someone's trying to hide a ball somewhere.",6.76
+431,So just understand that the reason a lot of these loans were structured in such a convoluted way was ultimately so that Alameda or FTX could benefit.,8.68
+432,And that's ultimately what happened.,1.18
+433,They ended up basically siphoning money out of BlockFi.,2.52
+434,"All right, today we have another big witness, Nishad Singh.",4.98
+435,"He's basically the head of engineering at FTX, but the reason he's important is because he describes finding out that Alameda had basically taken customer money and confronting Sam about it on this balcony, pictured here.",13.66
+436,"Nishad says that he was pacing behind these baskets on the left, and Sam was reclined on one of the white-like chased chairs behind that.",8.1
+437,"In fact, it's not too far from where we are now.",1.78
+438,"Basically, Nishad confronts Sam saying, hey, Caroline's really freaked out about the net asset value situation, and so am I.",6.3
+439,"According to Nishad, Sam then replied, I'm not sure what there is to worry about.",3.6
+440,Net asset value is fantastic by almost any measure.,2.66
+441,"Nishad replied, well, what about what Caroline said today?",2.36
+442,And Gary said today that there's 13 billion borrowed and we can't pay it all.,3.5
+443,"Sam said, right, that.",1.6
+444,We are a little short on deliverables.,2.2
+445,"He then says, this has been taxing me some 5% to 10% of my productivity for this year.",4.62
+446,"Now, this is important because Sam and his defense's excuse traditionally has been, hey, I just found out about this debt, this giant debt that Alameda had in late 2022.",11.08
+447,"I mean, look, I wasn't running Alameda.",2.54
+448,I didn't know exactly what was going on.,2.64
+449,I didn't know the size of their position.,2.16
+450,"A lot of these are things I've learned over the last month that I learned as I was sort of frantically digging into this on November 6th, November 7th, November 8th.",9.42
+451,But that excuse now falls flat because clearly we have him saying that he knew about this for over a year.,6.74
+452,"After all, he claims it occupied 10% of his productivity.",3.48
+453,So that blows a large hole in the defense's case that Sam was some innocent bystander.,4.96
+454,"Now, today I had a bunch of other fun bits in it too, like spreadsheets of political donations, spreadsheets of venture capital investments, spreadsheets of celebrity endorsements.",8.96
+455,"Yes, I like the spreadsheets.",1.22
+456,There's fun data in there.,1.2
+457,Like the fact that celebrity endorsements cost $1.13 billion.,4.8
+458,"In general, just the feeling was that, hey, Alameda's burning cash even as their company is drowning in debt and nobody seems to care.",10.0
+459,"All right, now we're on to the cross-examination of Nishad.",3.56
+460,"And for the first time, this is where the defense starts to get their feet a little bit and things flipped pretty quick.",5.26
+461,The consensus the day before was that all of that was terrible for Sam.,3.84
+462,Nishad was a star witness.,1.18
+463,He was there confronting Sam on the balcony.,2.4
+464,He has this detailed story about how he did it.,2.64
+465,"But when pressed for details, this is where things got really weak.",3.34
+466,The defense brought up his lack of certainty earlier in his conversations.,4.02
+467,"Quote, you told the prosecutors that you had a surprising amount of haziness when trying to recall events in June and July of 2022.",7.58
+468,"Nishad responds, I don't remember saying those exact words.",2.84
+469,There was a lot.,0.96
+470,I didn't remember the details around from that time.,2.18
+471,"Wait, which is it?",1.26
+472,His testimony is based around him remembering exactly what he said to Sam McMuffreed.,4.12
+473,Now he's saying he's hazy on the details?,2.54
+474,But it gets worse.,0.82
+475,"Nishad said that when he found out Alameda had stolen money, he felt really betrayed and described it as evil.",7.06
+476,"But then the defense pointed out that Nishad himself had borrowed money, 3.7 million dollars, to buy a house for himself.",7.88
+477,And where did he get that money?,1.6
+478,"Well, he also took it from FTX, it turns out.",4.0
+479,Which just destroys his credibility.,2.84
+480,Because how can you think something's evil and then use it to get a big house for 3.7 million?,5.44
+481,"So Nishad may have been the best storyteller for the prosecution, but he was also the easiest to pick apart for the defense.",6.66
+482,"All right, day 11, we get Peter Easton, an accounting professor at Notre Dame.",5.18
+483,His job is to trace what happened to the money at FTX.,3.54
+484,He begins by showing a chart of the money Alameda owed FTX.,3.22
+485,11.3 billion was the peak of their debts.,2.74
+486,"So in theory, Alameda should have had that money they owed as a balance in the bank.",4.78
+487,"But instead, the green line shows Alameda's actual balance in fiat they owed billions of dollars that they didn't have.",8.1
+488,"Next, Peter Easton showed how this happened through commingling of funds.",3.98
+489,"These are the different bank accounts that Alameda, FTX, their different entities owned.",4.98
+490,"Theoretically, these all should be separate, which is why they're in their own boxes.",3.62
+491,"But in reality, the transactions looked like this.",3.52
+492,They were all sending money to each other.,1.68
+493,This is why Alameda didn't have the money.,2.78
+494,They spent it through these different shell companies.,2.68
+495,Peter Easton broke down exactly how in four categories.,3.26
+496,"Investments in businesses, political contributions, charities, and purchase of properties.",5.24
+497,"Then he showed exactly what this looked like with charts like this, showing from left to right how customers' funds were sent to Alameda Research and then spent on some investment Sam himself wanted.",11.46
+498,They even had chat logs of Sam directing these investments.,3.96
+499,"Peter showed multiple examples like this, Alameda stealing customers' money.",3.9
+500,We saw it over and over and over and over.,3.12
+501,"The effect of all this was the feeling that almost all of SBF's donations, venture capital charity, politic contributions, it was all paid for by his customers, which led us, finally, to this.",13.72
+502,"A pie chart showing what Alameda owed customers, along with a breakout of what they actually spent it on.",6.02
+503,"And lo and behold, only a small fraction, $2.3 billion, was held aside for actual customers.",6.44
+504,Everything else was spent on things like this.,3.34
+505,And seeing this chart was devastating for Sam because it simplified an incredibly complicated topic.,4.68
+506,It's basically one easily readable chart.,2.74
+507,"Now, we're going to come back to Peter Easton because he's really interesting.",3.38
+508,"But first, I need to talk about what happened the next day.",3.88
+509,"So up on the stand, we have Ken Sun on day 12, FTX's general counsel.",6.42
+510,He's being asked about what happened during the collapse of FTX when they're looking to raise money to save the company.,5.46
+511,"Now, at some point, they turn to a company called Apollo, which only is important because Apollo finds out FTX is $7 billion short on customer funds.",9.12
+512,And they ask Sam for a legal justification as to why the funds were missing at Alameda.,6.2
+513,"And he asked me, Ken Sun, to come up with a legal justification.",4.36
+514,"The prosecution then asks, and did you come to any conclusions?",3.02
+515,"Answer, yes, that there were no legal justifications for the money being taken away.",5.38
+516,"Ken Sun eventually admits, though, quote, I did tell him that there were theoretical arguments, but none of them was supported by the facts.",7.12
+517,And one of those theoretical arguments became the famous margin lending defense.,5.24
+518,"Basically, in FTX's terms of service, there were two types of customers, regular customers and margin trading customers.",6.46
+519,Regular customers couldn't have their assets lent out.,2.94
+520,Margin trading customers had a separate TOS where they agreed that they could have their funds lent out.,5.12
+521,"And the theoretical argument is that whenever Alameda borrowed money, they weren't borrowing from regular customers.",6.34
+522,"They were borrowing from these margin lending customers, which they were allowed to do.",4.42
+523,"The only issue with this is that Ken Sun said that he, quote, previewed this argument with Nashad and Ramek, and they had pulled some numbers that showed that it was not supported by the facts.",8.96
+524,"Question, did you relay that to the defendant?",2.2
+525,"Answer, yes.",0.82
+526,How did he acknowledge it?,1.06
+527,"He said, yup, yup.",1.34
+528,"Okay, we know this is true because of Peter Easton's testimony earlier, who showed some of these numbers.",7.14
+529,"On this graph in red, you have how much Alameda owed customers.",3.1
+530,"And in green, you have how much Alameda was borrowing in the spot margin program.",4.86
+531,"As you can see, there are billions of dollars still missing that couldn't be explained by this argument.",5.2
+532,"Despite this, Sam would still try to use it later in interviews with people like George Stephanopoulos.",5.72
+533,My understanding is a few things happen.,1.72
+534,"The first is there is a margin trading facility on FTX by which users can lend out funds, by which other users borrow funds.",7.84
+535,"And so there are explicit cases where there is, you know, margin extended where there is borrow lending.",5.66
+536,"If Alameda is borrowing the money that belongs to FTX depositors, that's a bright red line, isn't it?",8.52
+537,There are a lot of cases where that's actually explicitly part of the programs and that are happening.,5.18
+538,Here it says that the digital assets may not be loaned to FTX trading.,3.1
+539,"As you can see there, Sam is just sort of trying out this argument, see if anyone bites.",4.44
+540,"But even at the time, I knew that this couldn't be true because we had evidence that it wasn't.",4.72
+541,And I confronted Sam about it.,1.84
+542,"But I talked to somebody from Alameda and asked how big the position of like, or how many people had assets in the type of accounts that that terms of service would apply to versus the regular terms of service, which said you couldn't use their money.",13.4
+543,And they said it was about a billion that was in the margin trading or the margin like side of things where you could reuse their funds or whatever.,9.28
+544,And there was the rest of it was not there.,2.24
+545,So does that mean the rest of the money was stolen?,3.08
+546,"I mean, like, it seems like you're putting all your eggs behind this one excuse about, you know, there was this separate side of the terms of service.",7.08
+547,How do you address everyone else?,1.6
+548,So I don't have all the data for me.,2.82
+549,My memory is that it was substantially more than a billion in the margin trading program.,5.48
+550,But I don't have that data in front of me right now.,2.88
+551,So I can't verify that.,1.74
+552,"Well, now we do have the real numbers.",1.62
+553,"And of course, as Kan Sun, his lawyer, told Sam at the time, the argument makes no sense because the numbers just don't support what he's saying.",8.24
+554,And we were right.,0.94
+555,"Day 13, this basically marks the end of the prosecution's case and the beginning of the defenses.",5.8
+556,"Now, originally we said they didn't really have many people who were gonna testify besides Sam Beckman Freed.",5.74
+557,"Eventually, the defense did find one guy, and that is Joseph Pembley, a financial consultant who takes the stand next.",7.04
+558,"Now, his job is basically to undo the work of Peter Easton and provide an alternative financial case.",7.22
+559,"To do this, he claimed that 78% of accounts on FTX had spot margin lending enabled, trying to give credit to this margin lending explanation.",10.78
+560,"Or to put it another way, only $2 billion that were borrowed wouldn't be allowed.",4.8
+561,"To be honest, this was pretty confusing because this basically flips Peter Easton's testimony on its head.",5.7
+562,You have these two financial experts basically both saying opposite things.,4.18
+563,"So to draw a distinction between these two witnesses, the prosecution in cross asked Mr.",5.58
+564,Pembley if he had only looked at the FTX database.,3.34
+565,"Pembley says, yes, that is correct.",1.46
+566,"Question, you can't draw further conclusions beyond that.",2.64
+567,Correct.,0.24
+568,"They point out, question, you didn't look at the fiat at account in FTX, did you?",4.0
+569,"And you did not engage in any financial tracing, correct?",2.92
+570,"Pembley answers, of course not.",1.26
+571,"No, no, sir.",1.0
+572,"The idea here being to distinguish Peter Easton as the person who actually traced crypto and fiat, whereas Pembley just looked at a single database that FTX maintained and could have tainted.",11.36
+573,"Even though I guess they had a point here, I do think this was a net win for the defense because the goal, and I think what they achieved, was muddying the waters by presenting their own set of numbers that was very different.",13.02
+574,"And look, speaking of alternative stories, this is where things got really interesting because the defense next calls up their star witness, I guess, Sam Bankman Freed to the stand.",11.02
+575,"All right, let me start this by saying it is very risky when a defendant testifies because it can open you up to cross-examination.",8.12
+576,"But at this point, I think everyone agreed that Sam doesn't really have much to lose, and he loves to talk.",5.76
+577,And so Sam's explanation for what happened the last few years began.,3.74
+578,And you won't be surprised to find out that it's very different from the prosecution story.,4.1
+579,"Now, some of it consisted of innocent explanations, things like how Sam auto-deleted messages on Signal that a prosecution kind of implied he was hiding evidence.",9.6
+580,"Sam claims this was just a precaution, he learned, called the New York Times test, where you want to avoid writing things down because a lot of innocuous things can look pretty bad out of context.",12.02
+581,"Other times, Sam wouldn't just say it was innocent, he would claim ignorance of what was happening.",4.58
+582,"He would say things like, I wasn't entirely sure what was happening, and I wish I had a better understanding than I did.",6.3
+583,And there were teams that were managing this process.,2.82
+584,Sam even says he didn't even know about the $8 billion hole in his company called the Fiat ad account.,5.22
+585,"Quote, did you know what Fiat ad was at the time?",2.56
+586,No.,0.24
+587,Did you later learn?,1.06
+588,Yes.,0.38
+589,"Sam says he didn't even have conversations about it until October of 2022, which, if you remember, directly contradicts what we heard from other employees.",8.88
+590,He even claims he was very surprised when he found out they owed $8 billion.,3.44
+591,"Basically, his version of events has him, the surprise CEO, you know, at the helm of the Titanic, who only finds out it's all sinking when it's too late to say it.",9.4
+592,"And all of the illegal actions taken by his, you know, company were really because of Caroline Ellison, Nishad, and Gary.",8.02
+593,And all of it was without his knowledge.,1.54
+594,"And look, look, it's, I guess it's a story.",1.96
+595,It's a nice story.,0.64
+596,But is it going to hold up to Cross?,2.0
+597,Let's find out.,1.04
+598,"Okay, Sam is up on the stand.",2.0
+599,Ms.,0.18
+600,Sassoon is the lawyer for Cross Examination.,2.02
+601,He's basically evasive.,1.24
+602,She's ruthless.,0.88
+603,So here's what happened next.,1.64
+604,Ms.,0.5
+605,"Sassoon asks, Were you not involved at all in Alameda trading in 2022?",4.02
+606,"Sam says, I was not involved as a general principal in day-to-day trading.",3.6
+607,Then Ms.,0.54
+608,"Sassoon showed him being involved in day-to-day trading, oxy, and maps, with text messages to Caroline saying, one to two million dollars of each over the next day or two.",10.98
+609,"Question, did you see that?",1.3
+610,Yep.,0.3
+611,And so began the ruthless destruction of Sam's credibility.,3.98
+612,He would say he didn't do something.,1.84
+613,"And then basically, we'd get hard evidence that he did.",2.76
+614,"We also got a really annoying strategy from Sam, where he just would try to dodge every question about things he said in the past.",7.24
+615,Do you recall that?,1.52
+616,"Sam would say, Not specifically, but I'm not saying that I didn't.",3.58
+617,Or Ms.,0.4
+618,"Sassoon would ask, Yes or no, you stated on this podcast, you were not involved at all in Alameda trading.",5.9
+619,"Sam, I don't recall what I said.",2.06
+620,And then we would just hear this.,2.42
+621,I wasn't super involved in Alameda.,2.1
+622,I was not involved at all in the trading.,1.5
+623,I hadn't been for years.,1.84
+624,"Things continued like this, with Sam saying things like, I'm not sure.",2.78
+625,I don't remember.,0.82
+626,"Quote, I don't remember what I said.",1.8
+627,And Ms.,0.28
+628,"Sassoon, each time would show him exactly what he said he doesn't remember.",4.22
+629,"And Sam basically refused to say yes, even to things that were obviously true.",4.86
+630,"Like a question, Did you or did you not market FTX International as safe?",4.18
+631,"Yes, he did that like a million times.",1.72
+632,"He'd say, I don't specifically remember that.",2.76
+633,I'm not sure.,0.8
+634,"Which I'm not sure the benefit of saying you don't remember this, but there are definitely negatives to it, which was pissing off the judge and the jury.",9.18
+635,"After all, Sam's whole case rests on his version of events, which is very different from everyone else's.",6.42
+636,"But when pressed on basic statements he made, if he suddenly gets amnesia and can't recall, why should anyone believe it when he does recall things?",8.96
+637,"This felt like a really big trap had been set for Sam, and he kind of just walked right into it.",5.66
+638,"Not that things went better for him when he did answer though, because at some point Ms.",4.5
+639,"Sassoon asked about regulation, and he did answer that.",2.72
+640,"Question, you wanted your followers to think that consumer protection was important to you, right?",3.98
+641,"Answer, sure.",0.82
+642,"But this was really just for PR, wasn't it?",2.02
+643,"Answer, no.",0.92
+644,"She then pulls up a message Sam himself wrote, and had him read it out to the jury, saying, yeah, just PR, f*** regulators.",8.56
+645,"And look, that's a lot.",3.52
+646,"Just on paper, that's already so damning.",2.94
+647,But having Sam himself actually repeat it back to the judge and jury just encapsulates this story so well.,6.88
+648,"Because from the beginning, Sam believed he can talk his way out of this, only to have himself eviscerated, not necessarily by other people, but by his own words most of all.",11.4
+649,There's just something so poetic about that.,2.44
+650,"And look, cross-examination went on for a while, but I think that was the most powerful moment for me personally.",6.78
+651,And it concludes the major revelations from his testimony.,2.48
+652,"So now, after hearing all the evidence, I think it's time for a jury decision.",4.08
+653,"All right, we have a verdict.",2.94
+654,"It's only been three hours since the jury started deliberating, which usually means it was a fast decision.",5.68
+655,"So if you want to put in your thoughts at home, I have the verdict right here.",3.86
+656,All seven counts.,2.3
+657,"Guilty, baby.",0.8
+658,"So this is a pretty happy ending, obviously, for me, but we won't know the sentencing until March.",6.66
+659,"In fact, I think it's a happy ending for me.",1.26
+660,"For a lot of the customers, at least some cold comfort, that there looks like there's going to be some justice done here.",6.74
+661,"And for this case, for now, it's over.",2.82
+662,"Either way, hope you enjoyed this detailed look at the FTX trial.",3.54
+663,Thanks for watching.,1.38
+664,"Okay, before you go, I just wanted to say I'm going to be releasing some tasteful photos for my bathtub shoot on Patreon as wallpapers.",7.28
+665,"Coffee hasn't paid its tab in weeks, and I'm broke.",2.32
+666,What are you whispering about over there?,1.24
+667,"Oh, nothing.",0.98
+668,I'm just telling everybody they can get early access to these amazing videos on Patreon by supporting us.,5.96
+669,"Hey, that's actually pretty nice.",1.36
+670,"Thanks, Maxwell.",0.64
+671,"You know, to think I was mad at you earlier.",2.44
+672,All is forgiven.,1.0
+673,That's good.,0.52
+674,"You know, last thing, I found this camera of yours, and there's some pretty insane photos you took.",5.94
+675,"We're deleting these, right?",1.12
+676,We can't show the public this.,1.22
+677,"Oh, those?",0.56
+678,Of course.,0.68
+679,"You know, you've been working so hard.",1.88
+680,Let me take care of that for you.,1.36
+681,You get going now.,0.88
+682,"Well, thanks.",0.64
+683,"Yeah, sure.",0.36
+684,Just take care of it.,1.2
+685,And I think I'm done with the $40 million penthouse.,2.5
+686,See you back at the bar.,0.84
