@@ -1,5 +1,7 @@
 OPENAI_API_KEY = "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"
-MODEL = "text-embedding-ada-002"
+EMBEDDINGS_MODEL = "text-embedding-ada-002"
+
+SENTIMENT_MODEL = "cardiffnlp/twitter-roberta-base-sentiment"
 
 GOOGLE_API_KEY = "AIzaSyAAD5vikUMvBwj1xUyDW4YyGKneIQvdk_U"  # todo: rename keys
 
@@ -13,3 +15,5 @@ FILE_NAMES = [
 ]
 
 FILE = 4  # todo
+
+

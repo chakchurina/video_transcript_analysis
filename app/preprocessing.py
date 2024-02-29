@@ -3,7 +3,7 @@ import string
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from openai import OpenAI
-from config.config import OPENAI_API_KEY, MODEL
+from config.config import OPENAI_API_KEY, EMBEDDINGS_MODEL
 
 LONG = 35  # Максимальная длина предложения для разделения
 SHORT = 5  # Минимальная длина предложения для объединения
@@ -46,7 +46,7 @@ class DataProcessor:
         return df
 
     def get_embeddings(self, text):
-        response = self.client.embeddings.create(input=text, model=MODEL)
+        response = self.client.embeddings.create(input=text, model=EMBEDDINGS_MODEL)
         return response.data[0].embedding
 
     def get_cosine_distance(self, embeddings):
