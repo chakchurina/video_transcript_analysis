@@ -19,7 +19,7 @@ class DataProcessor:
         self.raw_df.rename(columns={'length': 'time'}, inplace=True)
 
     @staticmethod
-    def clean_tokenize(text):
+    def tokenize(text):
         text = text.lower()
         text = text.translate(str.maketrans('', '', string.punctuation))
         words = text.split()
@@ -27,7 +27,7 @@ class DataProcessor:
 
     def add_aux_columns(self, df):
         df['embedding'] = df['sentence'].apply(self.get_embeddings)
-        df['tokens'] = df['sentence'].apply(self.clean_tokenize)
+        df['tokens'] = df['sentence'].apply(self.tokenize)
         df['tempo'] = df['tokens'].apply(len) / df['time']
         df['length'] = df['tokens'].apply(len)
         df['question'] = df['sentence'].str.contains('\?')

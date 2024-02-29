@@ -1,18 +1,18 @@
 from app.preprocessor import DataProcessor
 from app.sentiment_analyzer import SentimentAnalyzer
 from app.insight_extractor import InsightExtractor
+from app.summarizer import TextSummarizer
 
-from config.config import DATA_PATH, FILE_NAMES, FILE
+from config.config import TEXTS_PATH, FILE_NAMES, FILE
 
 
 if __name__ == "__main__":
-    processor = DataProcessor(DATA_PATH, FILE_NAMES, FILE)
+
+    processor = DataProcessor(TEXTS_PATH, FILE_NAMES, FILE)
     df = processor.prepare_data()
 
-    print("\n".join(df['sentence']))
-    print(df.head())
-
-    mean_tempo = df['tempo'].mean()
+    text = ' '.join(df['sentence'])
+    # mean_tempo = df['tempo'].mean()
 
     analyzer = SentimentAnalyzer()
     analyzer.apply_to_dataframe(df, 'sentence')
@@ -23,5 +23,17 @@ if __name__ == "__main__":
     fast_responses = extractor.extract_fast_responses()
     qa_pairs = extractor.find_question_answer_pairs()
     intros = extractor.find_intros()
+
+    # Пример использования:
+    summarizer = TextSummarizer()
+
+    # Для резюмирования текста
+    summary = summarizer.summarize_with_textrank(text, 3)
+    print(summary)
+
+    # Для получения ключевых слов темы текста
+    theme_keywords = summarizer.get_text_theme_keywords(df['sentence'].tolist(), df['embedding'].tolist())
+
+    # todo: get the most commented part of video
 
     print(intros)

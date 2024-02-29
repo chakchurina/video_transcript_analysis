@@ -31,21 +31,29 @@ class InsightExtractor:
 
         return closest_statements
 
-    def find_intros(self):
-        # Dirty hack to find intros in text :)
-        intro_request = "My name is Ankit Singla and I'm a full-time blogger. I blog about blogging. " \
-                        "I'm Karen, an entrepreneur and VC consultant. " \
-                        "This is Maria and she is a Data Engineer at Rask"
+    def find_intros(df):
+        similarity_threshold = 0.765
+        # todo ad-hoc threshold, very sorry
 
-        request_embedding = DataProcessor.get_embeddings(intro_request)
-        request_embedding = np.array(request_embedding).reshape(1, -1)
+        request = "My name is Ankit Singla and I'm a full-time blogger. I blog about blogging. " \
+                  "I'm Karen, an entrepreneur and VC consultant. " \
+                  "Paul Erdős was a Hungarian mathematician. He was one of the most prolific " \
+                  "mathematicians and producers of mathematical conjectures of the 20th century. " \
+                  "This is Maria and she is a Data Engineer at Rask"
+        request_embedding = get_embeddings(request)
+        request_embedding = np.array(request_embedding).reshape(1, -1)  # Подготавливаем вектор запроса
 
         sentence_similarities = []
-        for index, row in self.df.iterrows():
-            embedding = np.array(row['embedding']).reshape(1, -1)
+        for index, row in df.iterrows():
+            embedding = np.array(row['embedding']).reshape(1, -1)  # Подготавливаем вектор предложения
             similarity = cosine_similarity(embedding, request_embedding)[0][0]
-            sentence_similarities.append((index, row['sentence'], similarity))
+            if similarity > similarity_threshold:
+                sentence_similarities.append((index, row['sentence'], similarity))
 
-        sorted_sentences = sorted(sentence_similarities, key=lambda x: x[2], reverse=True)[:3]
+        sorted_sentences = sorted(sentence_similarities, key=lambda x: x[2], reverse=True)
+        print(sorted_sentences)
         return [{i: sentence} for i, sentence, _ in sorted_sentences]
+
+    intros = find_intros(df)
+    print(intros)
 
