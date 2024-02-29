@@ -14,7 +14,6 @@ class DataProcessor:
 
     def __init__(self, data_path, file_names, file_index):
         self.file_path = os.path.join(data_path, file_names[file_index])
-        self.client = OpenAI(api_key=OPENAI_API_KEY)
 
         self.raw_df = pd.read_csv(self.file_path)
         self.raw_df.rename(columns={'length': 'time'}, inplace=True)
@@ -45,8 +44,10 @@ class DataProcessor:
 
         return df
 
-    def get_embeddings(self, text):
-        response = self.client.embeddings.create(input=text, model=EMBEDDINGS_MODEL)
+    @staticmethod
+    def get_embeddings(text):
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        response = client.embeddings.create(input=text, model=EMBEDDINGS_MODEL)
         return response.data[0].embedding
 
     def get_cosine_distance(self, embeddings):
