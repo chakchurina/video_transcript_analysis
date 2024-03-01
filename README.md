@@ -19,7 +19,7 @@ You'll find the prompts and all the modules needed for this analysis inside. I a
 - Lack of guardrails for GPT (I took a week's time and didn't manage to add checks for the reasonableness of the output),
 - Lack of precise time-codes from phrases: I estimated based on sentence durations, but the video splice was not high quality. I chose not to calculate directly from the video to save time,
 - Absence of a linter, Docker, and all other development attributes, but I decided it wasn't the focus of the assignment and didn't spend time on them. Mainly, I wanted to achieve a practical result,
-- A decent file structure. I understand, with more days, I would have thought about how to reorganize the files.
+- A decent file structure. I'd myself think how to reorganize the files.
 
 **Ideas I Had But Didn't Implement**
 - I tried enriching the dataset with YouTube comments — they could help identify frequently commented spots. YouTube doesn't provide hotspots, but extracting them seemed like a good idea,
@@ -29,7 +29,7 @@ You'll find the prompts and all the modules needed for this analysis inside. I a
 
 The repository includes a notebook with my experiments — it's a bit messy, but I'll try to tidy it up into a more readable state in the next couple of hours.
 
-I want to say thanks again for such a cool task. I enjoyed working on it and hope you'll like my work too!
+I want to say thanks again for such a cool task! I enjoyed working on it and hope you'll like my work too!
 
 ## Features
 
