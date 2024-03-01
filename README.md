@@ -9,9 +9,9 @@ Thank you for the opportunity and the test assignment! It was genuinely fun and 
 You requested an explorative analysis, but as a practice-oriented person, I discovered during my research that video segmentation was possible, so I went ahead and implemented it.
 
 In this repository, you'll find a small service that executes such segmentation. The main idea revolves around:
-- Attempting to identify the most vivid parts of the text (using sentiment analysis, text themes, etc.),
+- Attempting to identify the most vivid parts of the text (using sentiment analysis, topic modeling, etc.),
 - Finding the context of these highlights through cosine distance,
-- And asking Chat GPT to form short stories from these sentences.
+- And prompting Chat GPT to form short stories from these sentences.
 
 You'll find the prompts and all the modules needed for this analysis inside. I attempted to validate the results using ChatGPT.
 
@@ -21,13 +21,13 @@ You'll find the prompts and all the modules needed for this analysis inside. I a
 
 **Ideas I Had But Didn't Implement**
 
-- I tried enriching the dataset with YouTube comments — they could help identify frequently commented spots. YouTube doesn't provide hotspots, but extracting them would seem like a good idea.
+- I tried enriching the dataset with YouTube comments — they could help identify frequently commented spots. YouTube doesn't provide hotspots, but extracting them, too, seems like a good idea.
 - Choosing themes for shorts based on channel descriptions or YouTube topics might improve views for a specific blogger.
 - If video processing speed isn't an issue, exploring the video with Computer Vision to alternate shots and make the cuts neater could be tried. 
-- Based on sentiment analysis, I would create a small meme library — they could be added to the video at moments with high scores.
+- Based on sentiment analysis, I would create a small meme library — they could be added to the video at moments with high sentiment analysis scores.
 ![grumpy.png](https://www.palmbeachpost.com/gcdn/authoring/2013/06/02/NPPP/ghows-LK-b5f8745d-d134-4a5c-8d6c-cf570b96573a-2f43bf6d.jpeg?width=660&height=372&fit=crop&format=pjpg&auto=webp)
 
-The repository includes a notebook with my experiments — I tried various approaches before packaging my solutions into the service. You can browse through it, but don't consider it a solution; it's more like my sandbox, which demonstrates the thought process.
+The repository includes a notebook with my experiments — I tried various approaches before packaging my solutions into the service. You can browse through it, but don't consider it a solution; it's more like my jotter, which demonstrates my thought process.
 
 I want to say thanks again for such a cool task! I enjoyed working on it and hope you'll like my work too!
 
@@ -54,7 +54,7 @@ Make sure you have Python 3.8+ and pip installed. Then, follow these steps:
    ```
 
 3. **Set Up Configuration**:
-   - Update `config/config.py` with the necessary API keys and model paths.
+   - Update `config/config.py` with the necessary API keys.
 
 4. **Select a file for processing**:
    - Change the `FILE_NUMBER` variable in `config/config.py`
