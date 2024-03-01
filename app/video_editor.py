@@ -9,7 +9,7 @@ from config.config import VIDEOS_PATH, SHORTS_PATH
 
 class VideoEditor:
     @staticmethod
-    def cut_sentences_from_video(df: DataFrame, sentence_numbers: List[int], video_id: str, index: int) -> None:
+    def create_video(df: DataFrame, sentence_numbers: List[int], video_id: str, index: int) -> None:
         source_path: str = os.path.join(VIDEOS_PATH, f'{video_id}.mp4')
         result_path: str = os.path.join(SHORTS_PATH, f'{video_id}_{index}.mp4')
 

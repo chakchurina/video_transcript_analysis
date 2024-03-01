@@ -57,7 +57,7 @@ def main() -> None:
         text: str = ' '.join(df.loc[list(indexes_set), 'sentence'])
 
         logging.info(f"Cutting script: {text}")
-        VideoEditor.cut_sentences_from_video(df, selected, video_id, i)
+        VideoEditor.create_video(df, selected, video_id, i)
 
 
 if __name__ == "__main__":
