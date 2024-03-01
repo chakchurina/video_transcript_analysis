@@ -9,7 +9,7 @@ from config.config import YOUTUBE_API_KEY, VIDEOS_PATH
 class YouTubeService:
     def __init__(self):
         self.youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
-        self.video_url = "https://www.youtube.com/watch?v="
+        self.video_prefix = "https://www.youtube.com/watch?v="
 
     def get_comments(self, video_id):
         comments = []
@@ -43,38 +43,6 @@ class YouTubeService:
         else:
             return None
 
-    def get_channel_description(self, channel_id):
-        request = self.youtube.channels().list(
-            part='snippet',
-            id=channel_id
-        )
-        response = request.execute()
-
-        if 'items' in response and response['items']:
-            return response['items'][0]['snippet']['description']
-        else:
-            return None
-
-    def get_channel_videos_descriptions(self, channel_id):
-        video_descriptions = []
-        request = self.youtube.search().list(
-            part="snippet",
-            channelId=channel_id,
-            maxResults=50,
-            order="date"
-        )
-        response = request.execute()
-
-        for item in response['items']:
-            if item['id']['kind'] == "youtube#video":
-                video_description = {
-                    "title": item['snippet']['title'],
-                    "description": item['snippet']['description']
-                }
-                video_descriptions.append(video_description)
-
-        return video_descriptions
-
     def download_video(self, video_id, save_path=VIDEOS_PATH):
         filename = video_id + '.mp4'
         file_path = os.path.join(save_path, filename)
@@ -83,7 +51,7 @@ class YouTubeService:
             print(f'Video {video_id} already exists. Skipping download.')
             return
 
-        video_url = f'{self.video_url}{video_id}'
+        video_url = f'{self.video_prefix}{video_id}'
         yt = YouTube(video_url)
         stream = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
 

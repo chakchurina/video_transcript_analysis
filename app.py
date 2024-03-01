@@ -1,39 +1,33 @@
 import pandas as pd
 
-from app.preprocessor import DataProcessor
-from app.sentiment_analyzer import SentimentAnalyzer
-from app.insight_extractor import InsightExtractor
-from app.summarizer import TextSummarizer
-from app.segmenter import TextSegmenter
-from app.youtube_service import YouTubeService
-from app.gpt_selector import prompt_gpt  # todo refactor
-from app.video_editor import VideoEditor
+from app.data_processor import DataProcessor
+from app.analytics.sentiment_analyzer import SentimentAnalyzer
+from app.analytics.insight_extractor import InsightExtractor
+from app.analytics.summarizer import TextSummarizer
+from app.analytics.segmenter import TextSegmenter
+from app.services.youtube_service import YouTubeService
+from app.services.openai_service import prompt_gpt  # todo refactor
 
 from config.config import TEXTS_PATH, VIDEOS
 
 
 if __name__ == "__main__":
-    # todo сначала загрузим видео и достанем всю информацию, которую можно вытащить
 
-    TRANSCRIPT, LINK = VIDEOS[4].popitem()  # todo change the way of storing it
-    TRANSCRIPT = TRANSCRIPT + '.csv'  # todo pizdets
+    # todo change the way of storing it
+    TRANSCRIPT, LINK = VIDEOS[4]
+    TRANSCRIPT = TRANSCRIPT + '.csv'  # todo cringe
 
+    # get video and comments from YouTube
     youtube = YouTubeService()
     video_id = youtube.extract_video_id(LINK)
-    channel_id = youtube.get_channel_id(video_id)
-    comments = youtube.get_comments(video_id)
-    description = youtube.get_channel_description(channel_id)
-    video_descriptions = youtube.get_channel_videos_descriptions(channel_id)
-
     youtube.download_video(video_id=video_id)
+    comments = youtube.get_comments(video_id)
 
-    # todo работа с текстами
-    processor = DataProcessor(TEXTS_PATH, TRANSCRIPT)
-    df = processor.prepare_data(video_id)
+    # preprocess transcript and add auxiliary columns
+    df = DataProcessor(TEXTS_PATH, TRANSCRIPT, video_id)
 
-    # todo Обогатим df с Ютуба
-    comments_df = pd.DataFrame(comments)
-    videos_df = pd.DataFrame(video_descriptions)
+    # try to enrich data using comments (disabled for now)
+    # comments_df = pd.DataFrame(comments)
 
     text = ' '.join(df['sentence'])
 

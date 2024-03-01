@@ -4,6 +4,13 @@ from config.config import OPENAI_API_KEY, GPT_MODEL
 from config.promts import get_sentences_prompt_template
 
 
+@staticmethod
+def calculate_embeddings(text):
+    client = OpenAI(api_key=OPENAI_API_KEY)
+    response = client.embeddings.create(input=text, model=EMBEDDINGS_MODEL)
+    return response.data[0].embedding
+
+
 def prompt_gpt(sentence_number, transcript, keywords):
 
     theme = ", ".join(keywords)

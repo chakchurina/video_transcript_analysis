@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
-from app.preprocessor import DataProcessor
+from app.data_processor import DataProcessor
 
 
 class InsightExtractor:

@@ -11,9 +11,9 @@ TEXTS_PATH = "data/transcripts/"
 VIDEOS_PATH = "data/videos/"
 
 VIDEOS = [
-    {"2024 Rolls-Royce Spectre Review": "https://www.youtube.com/watch?v=aWSCm3YN_sQ"},
-    {"Apple Vision Pro Impressions": "https://www.youtube.com/watch?v=OFvXuyITwBI"},
-    {"George Hotz": "https://www.youtube.com/watch?v=dNrTrx42DGQ"},
-    {"The END of Sam Bankman Fried": "https://www.youtube.com/watch?v=Hzko-cjHhTg"},
-    {"Why is LinkedIn so weird": "https://www.youtube.com/watch?v=IMfBS4mBfBQ"}
+    ("2024 Rolls-Royce Spectre Review", "https://www.youtube.com/watch?v=aWSCm3YN_sQ"),
+    ("Apple Vision Pro Impressions", "https://www.youtube.com/watch?v=OFvXuyITwBI"),
+    ("George Hotz", "https://www.youtube.com/watch?v=dNrTrx42DGQ"),
+    ("The END of Sam Bankman Fried", "https://www.youtube.com/watch?v=Hzko-cjHhTg"),
+    ("Why is LinkedIn so weird", "https://www.youtube.com/watch?v=IMfBS4mBfBQ")
 ]

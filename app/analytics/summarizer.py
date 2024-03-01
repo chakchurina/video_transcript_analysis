@@ -6,7 +6,7 @@ from sumy.nlp.tokenizers import Tokenizer
 from sumy.utils import get_stop_words
 from sklearn.cluster import KMeans
 
-from app.preprocessor import DataProcessor
+from app.data_processor import DataProcessor
 
 
 class TextSummarizer:
