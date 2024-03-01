@@ -14,6 +14,7 @@ from config.config import TEXTS_PATH, VIDEOS
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+
 def main() -> None:
     TRANSCRIPT, LINK = VIDEOS[4]
     TRANSCRIPT += '.csv'  # Adjusting transcript file extension
@@ -27,7 +28,7 @@ def main() -> None:
 
     summarizer = TextSummarizer()
     theme_keywords: List[str] = summarizer.get_keywords(df)
-    summary: List[str] = summarizer.summarize(df, 3)
+    summary: List[int] = summarizer.summarize(df, 3)  # todo add summary to highlights
 
     extractor = InsightExtractor(df)
     segmenter = TextSegmenter(df)
