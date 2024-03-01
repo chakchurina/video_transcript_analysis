@@ -31,26 +31,33 @@ class InsightExtractor(BaseTextProcessor):
         Returns:
             List[int]: Indices of top non-neutral sentences.
         """
-        top_non_neutral_indices = sorted(self.df['emotion_score'].nlargest(8).index.tolist())
+        top_non_neutral_indices = sorted(self.df['emotion_score'].nlargest(10).index.tolist())
         return top_non_neutral_indices
 
     def questions(self) -> List[int]:
         """
-        Filters sentences that are questions.
+        Filters sentences that are questions and returns indices of the most emotional
+        questions if there are more than 10 questions.
 
         Returns:
-            List[int]: Indices of sentences that are questions.
+            List[int]: Indices of the most emotional questions or all questions if 10 or less.
         """
         questions_df = self.df[self.df['question']]
-        question_indices = questions_df.index.tolist()
+
+        if len(questions_df) > 10:
+            questions_df = questions_df.sort_values(by='emotion_score', ascending=False)
+            question_indices = questions_df.index[:10].tolist()
+        else:
+            question_indices = questions_df.index.tolist()
+
         return question_indices
 
     def intros(self) -> List[int]:
         """
-        Identifies sentences that resemble introductions, using a predefined request for embeddings comparison.
+        Identifies sentences that resemble introductions.
 
         Returns:
-            List[int]: Indices of sentences that resemble introductions.
+            List[int]: Indices of sentences that look like intros.
         """
         threshold = 0.765
         request = ("My name is Ankit Singla and I'm a full-time blogger. I blog about blogging. "
@@ -77,5 +84,7 @@ class InsightExtractor(BaseTextProcessor):
         intros = self.intros()
 
         highlights = list(set(emotionals + questions + intros))
-        logging.info(f"Extracted {len(highlights)} highlights from the DataFrame.")
+        logging.info(f"Extracted {len(highlights)} highlights from the DataFrame: "
+                     f"emotionals: {len(emotionals)}, questions: {len(questions)}, intros: {len(intros)}.")
+
         return highlights

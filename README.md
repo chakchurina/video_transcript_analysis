@@ -1,8 +1,8 @@
 # Rask AI take-home explorative assignment
 
-# Project Overview
+## Task Overview
 
-Hello, Brask Team!
+Hi, Brask Team!
 
 Thank you for the opportunity and the test assignment! It was genuinely fun and engaging.
 
@@ -22,6 +22,7 @@ You'll find the prompts and all the modules needed for this analysis inside. I a
 - A decent file structure. I'd myself think how to reorganize the files.
 
 **Ideas I Had But Didn't Implement**
+
 - I tried enriching the dataset with YouTube comments — they could help identify frequently commented spots. YouTube doesn't provide hotspots, but extracting them seemed like a good idea,
 - Choosing themes for shorts based on channel descriptions or YouTube topics might improve views for a specific blogger,
 - Based on sentiment analysis, I would create a small meme library — they could be added to the video in moments with high scores,

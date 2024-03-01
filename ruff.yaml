@@ -1,0 +1,5 @@
+repos:
+  - repo: https://github.com/chakchurina/video_transcript_analysis
+    rev: ''  # Use the latest version of Ruff
+    hooks:
+      - id: ruff

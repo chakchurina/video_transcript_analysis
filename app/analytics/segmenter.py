@@ -2,7 +2,7 @@ import numpy as np
 import math
 import logging
 
-from typing import List
+from typing import List, Tuple
 from scipy.signal import argrelextrema
 from sklearn.metrics.pairwise import cosine_similarity
 from pandas import DataFrame
@@ -109,7 +109,7 @@ class TextSegmenter(BaseTextProcessor):
         cosine_sim_matrix: np.ndarray = cosine_similarity(embeddings_matrix)
 
         activated_similarities: np.ndarray = self.activate_similarities(cosine_sim_matrix, p_size=p_size)
-        minimas: np.ndarray = argrelextrema(activated_similarities, np.less, order=2)
+        minimas: Tuple = argrelextrema(activated_similarities, np.less, order=2)
 
         split_points: List[int] = [each for each in minimas[0]]
 

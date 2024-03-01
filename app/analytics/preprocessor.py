@@ -9,7 +9,7 @@ from config.config import EMBEDDINGS_PATH
 
 class DataProcessor(BaseTextProcessor):
     """
-    Processes data for analytics, including creating dataframes, adding embeddings, and preparing auxiliary columns.
+    Prepares data for analytics.
     """
 
     def __init__(self, data_path: str, file: str, video_id: str) -> None:
@@ -43,7 +43,7 @@ class DataProcessor(BaseTextProcessor):
         self.df['question'] = self.df['sentence'].str.contains('\?')
 
         # todo: found out too late that there are pauses between phrases:(
-        offset = 0.23
+        offset = 0.22
         self.df['time'] += offset
         self.df['start_time'] = self.df['time'].cumsum().shift(fill_value=0)
         self.df['end_time'] = self.df['start_time'] + self.df['time']

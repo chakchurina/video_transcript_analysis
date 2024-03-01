@@ -16,8 +16,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 
 def main() -> None:
-    TRANSCRIPT, LINK = VIDEOS[4]
-    TRANSCRIPT += '.csv'  # Adjusting transcript file extension
+    TRANSCRIPT, LINK = VIDEOS[4]  #  todo Choose your file number
+    TRANSCRIPT += '.csv'
 
     youtube = YouTubeService()
     video_id: str = youtube.extract_video_id(LINK)
@@ -47,6 +47,7 @@ def main() -> None:
         text: str = ' '.join(df.loc[generated, 'sentence'])
         texts[tuple(generated)] = text
 
+    # todo: can I move it to a function
     scripts: List[str] = [f"{i}\n{text}\n\n" for i, (_, text) in enumerate(texts.items())]
 
     selected: List[int] = llm.validate(scripts=scripts, number=5)
