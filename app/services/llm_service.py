@@ -34,8 +34,8 @@ class LLM(BaseTextProcessor):
         """
         context_string: str = "\n".join([f"{index}: {df.loc[index, 'sentence']}" for index in context])
         theme: str = ", ".join(keywords)
-        smallest: int = 6
-        largest: int = 12
+        smallest: int = 5
+        largest: int = 10
 
         logging.info(f"Prompting with {smallest}, {largest}, sentence {sentence_number}")
 

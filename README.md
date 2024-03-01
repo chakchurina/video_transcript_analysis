@@ -64,6 +64,8 @@ Make sure you have Python 3.8+ and pip installed. Then, follow these steps:
      ```
      python main.py
      ```
+     
+Look for resulting videos at `data/shorts/` and find the texts at `data/`.
 
 ## Project Structure
 
