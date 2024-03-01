@@ -55,8 +55,8 @@ def main() -> None:
     for i, entry in enumerate(selected):
         indexes_set: Tuple[int] = list(texts.keys())[entry]
         text: str = ' '.join(df.loc[list(indexes_set), 'sentence'])
-        logging.info(text)
 
+        logging.info(f"Cutting script: {text}")
         VideoEditor.cut_sentences_from_video(df, selected, video_id, i)
 
 

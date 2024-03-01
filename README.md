@@ -1,40 +1,82 @@
-# Welcome to the Rask AI take-home explorative assignment
+# Rask AI take-home explorative assignment
 
-## "What can I find out about my transcripts?"
-The objective of this assignment is to analyse the given transcripts. 
-You received 5 transcripts from 5 videos (you can find the video links in `transcripts/links.txt`).
+# Project Overview
 
-In particular, since we are in the field of creating, editing and transforming video content, it is very important for us to understand the actual content of our videos. Therefore, in this task you should analyse the transcripts (**not necessarily all of them**) to try and understand the content of the videos better, to try and segment the content of the videos, to try and identify interesting parts of the content and so on.
+Hello, Brask Team!
 
-## What is provided:
-1. You are provided with 5 transcripts in (`transcripts/``)
-2. You are provided with an entry file `main.py` that has an example output provided for you.
-3. `main.py` uses the utils file `utils.py`, where you have basic data loading functionality provided.
+Thank you for the opportunity and the test assignment! It was genuinely fun and quite engaging.
 
-## Potential Objectives
-Overall, we are looking for an open-ended study of this data and what interesting insights you can find and provide. (I.e. this is an "Unsupervised Learning / Data Exploration Task")
+You requested an explorative analysis, but as a practice-oriented person, I discovered during my research that video segmentation was possible, so I went ahead and implemented it.
 
-A few examples might be:
-1. Clustering the main themes of the transcripts
-2. Identifying and Segmenting the Video according to Topics
-3. Identifying Particularly interesting parts of the video
+In this repository, you'll find a small service that executes such segmentation. The main idea revolves around:
+- Attempting to identify the most vivid parts of the text (using sentiment analysis, text themes, etc.),
+- Finding the context of these highlights through cosine distance,
+- And asking Chat GPT to form short stories from these sentences.
 
-## How can the output look like:
-Overall, this is left to you. We are not expecting a long report, however, results, some visualisations, and good insights would be interesting.
+You'll find the prompts and all the modules needed for this analysis inside. I attempted to validate the results using ChatGPT.
 
-Potentially the output could be a document that includes:
-1. A short section (in bullet-points) with 1-3 results (e.g. Topics / themes identified)
-    - Both the actual resuls
-    - An attempt to measure the quality of the results
-    - ...
-2. Possibly a few visualisations to represent your results and insights
-3. A manual inspection of these results and insights that can be gained from this( e.g.: model performance, data quality, how to use these results, etc.)
+**What's Missing**
+- Lack of guardrails for GPT (I took a week's time and didn't manage to add checks for the reasonableness of the output),
+- Lack of precise time-codes from phrases: I estimated based on sentence durations, but the video splice was not high quality. I chose not to calculate directly from the video to save time,
+- Absence of a linter, Docker, and all other development attributes, but I decided it wasn't the focus of the assignment and didn't spend time on them. Mainly, I wanted to achieve a practical result,
+- A decent file structure. I understand, with more days, I would have thought about how to reorganize the files.
 
-## What methods can / should you use:
-This part is really left to you. Feel free to use LLMs or classical tools. Perhaps both approaches can be tried for different aspects. (Again we do not want to over-burden you.)
+**Ideas I Had But Didn't Implement**
+- I tried enriching the dataset with YouTube comments — they could help identify frequently commented spots. YouTube doesn't provide hotspots, but extracting them seemed like a good idea,
+- Choosing themes for shorts based on channel descriptions or YouTube topics might improve views for a specific blogger,
+- Based on sentiment analysis, I would create a small meme library — they could be added to the video in moments with high scores,
+- If video processing speed isn't an issue, exploring the video with Computer Vision to alternate shots and make the cuts neater could be tried.
 
+The repository includes a notebook with my experiments — it's a bit messy, but I'll try to tidy it up into a more readable state in the next couple of hours.
+
+I want to say thanks again for such a cool task. I enjoyed working on it and hope you'll like my work too!
+
+## Features
+
+- **Sentiment Analysis**: Evaluate the sentiment of text data, categorizing it into positive, negative, or neutral sentiments.
+- **Text Summarization**: Extract key sentences from a large body of text to create concise summaries.
+- **Keyword Extraction**: Identify and extract the most relevant keywords from text data.
+- **Text Segmentation**: Segment text into meaningful blocks or paragraphs based on semantic similarities.
+
+## How to Run
+
+Make sure you have Python 3.8+ and pip installed. Then, follow these steps:
+
+1. **Clone the Repository**:
+   ```
+   git clone <repository-url>
+   cd <project-directory>
+   ```
+
+2. **Install Dependencies**:
+   ```
+   pip install -r requirements.txt
+   ```
+
+3. **Set Up Configuration**:
+   - Update `config/config.py` with the necessary API keys and model paths.
+
+4. **Running the Application**:
+   - Execute the main script to start processing your data.
+     ```
+     python main.py
+     ```
+
+## Project Structure
+
+- **`app/`**: Main application directory.
+  - **`analytics/`**: Contains modules for data processing, sentiment analysis, text summarization, and more.
+    - `base_processor.py`: Base class for text processing.
+    - `sentiment_analyzer.py`: Module for sentiment analysis.
+    - `text_summarizer.py`: Module for generating text summaries.
+    - `insight_extractor.py`: Extracts insights from text data.
+    - `text_segmenter.py`: Segments text into meaningful blocks.
+  - **`services/`**: External services integration (e.g., YouTube API).
+- **`config/`**: Configuration files and constants.
+  - `config.py`: Central configuration file. Left it as .py file for the sake of simplicity 
+- **`data/`**: Directory for storing input data and generated outputs.
+- **`requirements.txt`**: Project dependencies.
 
 ## Enjoy and Have fun.
-If you have questions please feel free to always reach out.
 
 (C) Brask Inc. All rights reserved.
