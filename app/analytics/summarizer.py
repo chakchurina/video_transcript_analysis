@@ -1,54 +1,76 @@
+import logging
+from typing import List, Set
+import pandas as pd
 from collections import Counter
-import numpy as np
+
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.summarizers.text_rank import TextRankSummarizer
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.utils import get_stop_words
-from sklearn.cluster import KMeans
 
 from app.analytics.base_processor import BaseTextProcessor
 
 
 class TextSummarizer(BaseTextProcessor):
-    def __init__(self, language='english'):
-        self.language = language
-        self.stop_words = set(get_stop_words(language.upper()))
+    """
+    Provides functionalities for text summarization and keyword extraction.
+    """
 
-    def summarize(self, df, sentences_count=10):
-        # Extractive summarization
-        text = ' '.join(df['sentence'].tolist())
+    def __init__(self, language: str = 'english') -> None:
+        """
+        Initializes the text summarizer with the specified language and its stop words.
+
+        Args:
+            language (str): The language of the text to be summarized. Defaults to 'english'.
+        """
+        self.language: str = language
+        self.stop_words: Set[str] = set(get_stop_words(language.upper()))
+        logging.info(f"TextSummarizer initialized for {language} language.")
+
+    def summarize(self, df: pd.DataFrame, sentences_count: int = 10) -> List[int]:
+        """
+        Summarizes the text contained in a DataFrame using extractive summarization.
+
+        Args:
+            df (pd.DataFrame): DataFrame containing sentences to summarize.
+            sentences_count (int): Number of sentences for the summary.
+
+        Returns:
+            List[int]: Indices of sentences included in the summary.
+        """
+        text: str = ' '.join(df['sentence'].tolist())
 
         parser = PlaintextParser.from_string(text, Tokenizer(self.language))
         summarizer = TextRankSummarizer()
         summary = summarizer(parser.document, sentences_count=sentences_count)
 
-        sentence_numbers = []
+        sentence_numbers: List[int] = []
         for sentence in summary:
             indices = [i for i, s in enumerate(df['sentence'].tolist()) if str(sentence) == s]
             sentence_numbers.extend(indices)
 
+        logging.info("Text summarized successfully.")
         return sorted(list(set(sentence_numbers)))
 
-    def get_keywords(self, df, num_clusters=1):  # todo remove cluster names
-        # todo тут не надо считать KMeans
-        sentences = df['sentence'].tolist()
-        embeddings = df['embedding'].tolist()
+    def get_keywords(self, df: pd.DataFrame, top_n: int = 3) -> List[str]:
+        """
+        Extracts keywords from the text contained in a DataFrame using a Bag-of-Words approach.
 
-        kmeans = KMeans(n_clusters=num_clusters, random_state=42)
-        kmeans.fit(np.array(embeddings))
-        cluster_labels = kmeans.labels_
+        Args:
+            df (pd.DataFrame): DataFrame containing sentences from which to extract keywords.
+            top_n (int): Number of top keywords to return.
 
-        cluster_sentences = [[] for _ in range(num_clusters)]
-        for i, sentence in enumerate(sentences):
-            cluster_sentences[cluster_labels[i]].append(sentence)
+        Returns:
+            List[str]: A list of extracted keywords.
+        """
+        keywords: List[str] = []
+        text: str = ' '.join(df['sentence'].tolist())
 
-        cluster_keywords = []
-        for cluster in cluster_sentences:
-            cluster_text = ' '.join(cluster)
-            cluster_words = self.tokenize(cluster_text)
-            cluster_words = [word for word in cluster_words if word not in self.stop_words]
-            word_counts = Counter(cluster_words)
-            most_common_words = word_counts.most_common(3)
-            cluster_keywords.extend([word[0] for word in most_common_words])
+        words: List[str] = self.tokenize(text)
+        words = [word for word in words if word not in self.stop_words]
+        word_counts: Counter = Counter(words)
+        most_common_words: List[tuple] = word_counts.most_common(top_n)
+        keywords.extend([word[0] for word in most_common_words])
 
-        return cluster_keywords
+        logging.info(f"Top {top_n} keywords extracted.")
+        return keywords

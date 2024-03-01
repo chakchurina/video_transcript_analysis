@@ -1,12 +1,16 @@
-from sklearn.metrics.pairwise import cosine_similarity
-from openai import OpenAI
 import string
 import numpy as np
+import logging
+
+from typing import List, Tuple, Any
+from sklearn.metrics.pairwise import cosine_similarity
+from openai import OpenAI
 
 from config.config import OPENAI_API_KEY, EMBEDDINGS_MODEL
 
 
 class BaseTextProcessor:
+    """Base class for text processing with methods for calculating embeddings and finding similar sentences."""
     client = OpenAI(api_key=OPENAI_API_KEY)
 
     def calculate_embeddings(self, text):
@@ -14,7 +18,16 @@ class BaseTextProcessor:
         return response.data[0].embedding
 
     @staticmethod
-    def tokenize(text):
+    def tokenize(text: str) -> List[str]:
+        """
+        Tokenizes a given text into words, removing punctuation and converting to lowercase.
+
+        Args:
+            text (str): The text to tokenize.
+
+        Returns:
+            List[str]: A list of words from the text.
+        """
         text = text.lower()
         text = text.translate(str.maketrans('', '', string.punctuation))
         words = text.split()

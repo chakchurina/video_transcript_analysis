@@ -33,7 +33,8 @@ def main() -> None:
     segmenter = TextSegmenter(df)
     llm = LLM()
 
-    highlights: List[int] = extractor.get_highlights() + summary
+    highlights: List[int] = extractor.get_highlights()
+    # todo add summary
 
     texts: Dict[Tuple[int], str] = {}
     for sentence_index in highlights:
