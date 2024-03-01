@@ -28,17 +28,16 @@ def main() -> None:
 
     summarizer = TextSummarizer()
     theme_keywords: List[str] = summarizer.get_keywords(df)
-    summary: List[int] = summarizer.summarize(df, 3)  # todo add summary to highlights
+    summary: List[int] = summarizer.summarize(df, 3)
 
     extractor = InsightExtractor(df)
     segmenter = TextSegmenter(df)
     llm = LLM()
 
     highlights: List[int] = extractor.get_highlights()
-    # todo add summary
 
     texts: Dict[Tuple[int], str] = {}
-    for sentence_index in highlights:
+    for sentence_index in highlights + summary:
         consecutive: List[int] = segmenter.get_consecutive(sentence_index, 0, 2)
         closest: List[int] = segmenter.get_n_closest(sentence_index, n=2)
         context: List[int] = sorted(set(consecutive + closest))
