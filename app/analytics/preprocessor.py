@@ -21,7 +21,7 @@ class DataProcessor(BaseTextProcessor):
             file (str): The filename of the dataset.
             video_id (str): The unique identifier for the video.
         """
-        self.file_path: str = os.path.join(data_path, file)
+        self.file_path: str = os.path.join(data_path, f"{file}.csv")
         self.video_id: str = video_id
         self.df: pd.DataFrame = pd.DataFrame()
 

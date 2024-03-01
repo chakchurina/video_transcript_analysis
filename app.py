@@ -10,20 +10,19 @@ from app.services.llm_service import LLM
 from app.services.youtube_service import YouTubeService
 from app.video_editor import VideoEditor
 
-from config.config import TEXTS_PATH, VIDEOS
+from config.config import TEXTS_PATH, VIDEOS, FILE_NUMBER
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def main() -> None:
-    TRANSCRIPT, LINK = VIDEOS[4]  #  todo Choose your file number
-    TRANSCRIPT += '.csv'
+    transcript, link = VIDEOS[FILE_NUMBER]
 
     youtube = YouTubeService()
-    video_id: str = youtube.extract_video_id(LINK)
+    video_id: str = youtube.extract_video_id(link)
     youtube.download_video(video_id=video_id)
 
-    preprocessor = DataProcessor(TEXTS_PATH, TRANSCRIPT, video_id)
+    preprocessor = DataProcessor(TEXTS_PATH, transcript, video_id)
     df: DataFrame = preprocessor.create_dataframe()
 
     summarizer = TextSummarizer()
@@ -47,7 +46,7 @@ def main() -> None:
         text: str = ' '.join(df.loc[generated, 'sentence'])
         texts[tuple(generated)] = text
 
-    # todo: can I move it to a function
+    # todo: better move it to a function
     scripts: List[str] = [f"{i}\n{text}\n\n" for i, (_, text) in enumerate(texts.items())]
 
     selected: List[int] = llm.validate(scripts=scripts, number=5)

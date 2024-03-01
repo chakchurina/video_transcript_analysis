@@ -16,19 +16,18 @@ In this repository, you'll find a small service that executes such segmentation.
 You'll find the prompts and all the modules needed for this analysis inside. I attempted to validate the results using ChatGPT.
 
 **What's Missing**
-- Lack of guardrails for GPT (I took a week's time and didn't manage to add checks for the reasonableness of the output),
-- Lack of precise time-codes from phrases: I estimated based on sentence durations, but the video splice was not high quality. I chose not to calculate directly from the video to save time,
-- Absence of a linter, Docker, and all other development attributes, but I decided it wasn't the focus of the assignment and didn't spend time on them. Mainly, I wanted to achieve a practical result,
-- A decent file structure. I'd myself think how to reorganize the files.
+- Lack of precise time-codes from phrases: I estimated based on sentence durations, but the video splice was not high quality. I chose not to calculate directly from the video to save time.
+- Absence of a Docker, and all other development attributes, but I decided it wasn't the focus of the assignment and didn't spend time on them. Mainly, I wanted to achieve a practical result.
 
 **Ideas I Had But Didn't Implement**
 
-- I tried enriching the dataset with YouTube comments — they could help identify frequently commented spots. YouTube doesn't provide hotspots, but extracting them seemed like a good idea,
-- Choosing themes for shorts based on channel descriptions or YouTube topics might improve views for a specific blogger,
-- Based on sentiment analysis, I would create a small meme library — they could be added to the video in moments with high scores,
-- If video processing speed isn't an issue, exploring the video with Computer Vision to alternate shots and make the cuts neater could be tried.
+- I tried enriching the dataset with YouTube comments — they could help identify frequently commented spots. YouTube doesn't provide hotspots, but extracting them would seem like a good idea.
+- Choosing themes for shorts based on channel descriptions or YouTube topics might improve views for a specific blogger.
+- If video processing speed isn't an issue, exploring the video with Computer Vision to alternate shots and make the cuts neater could be tried. 
+- Based on sentiment analysis, I would create a small meme library — they could be added to the video at moments with high scores.
+![grumpy.png](https://www.palmbeachpost.com/gcdn/authoring/2013/06/02/NPPP/ghows-LK-b5f8745d-d134-4a5c-8d6c-cf570b96573a-2f43bf6d.jpeg?width=660&height=372&fit=crop&format=pjpg&auto=webp)
 
-The repository includes a notebook with my experiments — it's a bit messy, but I'll try to tidy it up into a more readable state in the next couple of hours.
+The repository includes a notebook with my experiments — I tried various approaches before packaging my solutions into the service. You can browse through it, but don't consider it a solution; it's more like my sandbox, which demonstrates the thought process.
 
 I want to say thanks again for such a cool task! I enjoyed working on it and hope you'll like my work too!
 
@@ -57,7 +56,10 @@ Make sure you have Python 3.8+ and pip installed. Then, follow these steps:
 3. **Set Up Configuration**:
    - Update `config/config.py` with the necessary API keys and model paths.
 
-4. **Running the Application**:
+4. **Select a file for processing**:
+   - Change the `FILE_NUMBER` variable in `config/config.py`
+
+6. **Run the Application**:
    - Execute the main script to start processing your data.
      ```
      python main.py
