@@ -1,3 +1,4 @@
+import os
 import logging
 from typing import List, Dict, Tuple
 
@@ -10,7 +11,7 @@ from app.services.llm_service import LLM
 from app.services.youtube_service import YouTubeService
 from app.video_editor import VideoEditor
 
-from config.config import TEXTS_PATH, VIDEOS, FILE_NUMBER
+from config.config import TEXTS_PATH, VIDEOS, FILE_NUMBER, RESULT_PATH
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -57,6 +58,9 @@ def main() -> None:
 
         logging.info(f"Cutting script: {text}")
         VideoEditor.create_video(df, selected, video_id, i)
+
+        with open(os.path.join(RESULT_PATH, f"{video_id}.txt"), 'a') as file:
+            file.write(text + '\n')
 
 
 if __name__ == "__main__":

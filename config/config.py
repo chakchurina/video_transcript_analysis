@@ -9,6 +9,7 @@ EMBEDDINGS_PATH = "data/embeddings/"
 SHORTS_PATH = "data/shorts/"
 TEXTS_PATH = "data/transcripts/"
 VIDEOS_PATH = "data/videos/"
+RESULT_PATH = "data/"
 
 VIDEOS = [
     ("2024 Rolls-Royce Spectre Review", "https://www.youtube.com/watch?v=aWSCm3YN_sQ"),
