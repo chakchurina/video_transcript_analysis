@@ -37,3 +37,10 @@ class InsightExtractor(BaseTextProcessor):
 
         indices = self.threshold_closest(request_embedding, self.df, threshold=threshold)
         return indices
+
+    def get_highlights(self):
+        emotionals = self.emotional_messages()
+        questions = self.questions()
+        intros = self.intros()
+
+        return list(set(emotionals + questions + intros))

@@ -1,3 +1,7 @@
+import logging
+from typing import List, Dict, Tuple
+
+from pandas import DataFrame
 from app.analytics.preprocessor import DataProcessor
 from app.analytics.summarizer import TextSummarizer
 from app.analytics.insight_extractor import InsightExtractor
@@ -8,62 +12,51 @@ from app.video_editor import VideoEditor
 
 from config.config import TEXTS_PATH, VIDEOS
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-if __name__ == "__main__":
-
-    # todo change the way of storing it
+def main() -> None:
     TRANSCRIPT, LINK = VIDEOS[4]
-    TRANSCRIPT = TRANSCRIPT + '.csv'  # todo cringe
+    TRANSCRIPT += '.csv'  # Adjusting transcript file extension
 
-    # get video and comments from YouTube
     youtube = YouTubeService()
-    video_id = youtube.extract_video_id(LINK)
-    # youtube.download_video(video_id=video_id)
-    # comments = youtube.get_comments(video_id)
+    video_id: str = youtube.extract_video_id(LINK)
+    youtube.download_video(video_id=video_id)
 
-    # preprocess transcript and add auxiliary columns
     preprocessor = DataProcessor(TEXTS_PATH, TRANSCRIPT, video_id)
-    df = preprocessor.create_dataframe()
+    df: DataFrame = preprocessor.create_dataframe()
 
     summarizer = TextSummarizer()
-    # get video keywords
-    theme_keywords = summarizer.get_keywords(df)
-    # get sentences that best describe the whole video
-    summary = summarizer.summarize(df, 3)
+    theme_keywords: List[str] = summarizer.get_keywords(df)
+    summary: List[str] = summarizer.summarize(df, 3)
 
     extractor = InsightExtractor(df)
     segmenter = TextSegmenter(df)
     llm = LLM()
 
-    emotionals = extractor.emotional_messages()
-    questions = extractor.questions()
-    intros = extractor.intros()
+    highlights: List[int] = extractor.get_highlights() + summary
 
-    texts = {}
-    for sentence_index in set(emotionals + questions + intros):
-        # Get 0 paragraphs before, 2 after and retrieve all relevant
-        consecutive = segmenter.get_consecutive(sentence_index, 0, 2)
-        closest = segmenter.get_n_closest(sentence_index, n=2)
-        context = list(sorted(set(consecutive + closest)))
+    texts: Dict[Tuple[int], str] = {}
+    for sentence_index in highlights:
+        consecutive: List[int] = segmenter.get_consecutive(sentence_index, 0, 2)
+        closest: List[int] = segmenter.get_n_closest(sentence_index, n=2)
+        context: List[int] = sorted(set(consecutive + closest))
 
-        context_string = "\n".join([f"{index}: {df.loc[index, 'sentence']}" for index in context])
+        generated: List[int] = llm.generate(df, sentence_index, context, theme_keywords)
 
-        generated = llm.generate(sentence_index, context_string, theme_keywords)
+        text: str = ' '.join(df.loc[generated, 'sentence'])
+        texts[tuple(generated)] = text
 
-        text = ' '.join(df.loc[generated, 'sentence'])
-        texts.update({tuple(generated): text})
+    scripts: List[str] = [f"{i}\n{text}\n\n" for i, (_, text) in enumerate(texts.items())]
 
-    # todo
-    scripts = []
-    for i, (_, text) in enumerate(texts.items()):
-        scripts.append(f"{i}\n{text}\n\n")
+    selected: List[int] = llm.validate(scripts=scripts, number=5)
 
-    selected = llm.validate(texts=scripts, number=5)
+    for i, entry in enumerate(selected):
+        indexes_set: Tuple[int] = list(texts.keys())[entry]
+        text: str = ' '.join(df.loc[list(indexes_set), 'sentence'])
+        logging.info(text)
 
-    for entry in selected:
-        indexes_set = list(texts.keys())[entry]
-        text = ' '.join(df.loc[list(indexes_set), 'sentence'])
-        print(text)
+        VideoEditor.cut_sentences_from_video(df, selected, video_id, i)
 
-        cutter = VideoEditor(video_id)
-        cutter.cut_sentences_from_video(df, selected)
+
+if __name__ == "__main__":
+    main()
