@@ -12,7 +12,6 @@ class YouTubeService:
         self.video_url = "https://www.youtube.com/watch?v="
 
     def get_comments(self, video_id):
-        # todo: get the most commented part of video
         comments = []
         request = self.youtube.commentThreads().list(
             part='snippet',
@@ -95,25 +94,11 @@ class YouTubeService:
         else:
             print('No suitable stream found for downloading.')
 
+    @staticmethod
     def extract_video_id(url):
-        # todo Предполагаем, что URL формата https://www.youtube.com/watch?v=VIDEO_ID
+        # assuming the URL format be like https://www.youtube.com/watch?v=VIDEO_ID
         prefix = "watch?v="
         start_index = url.find(prefix) + len(prefix)
         video_id = url[start_index:]
         return video_id
 
-
-# Пример использования:
-handler = YouTubeService(YOUTUBE_API_KEY)
-video_id = extract_video_id(url)
-channel_id = handler.get_channel_id(video_id)
-comments = handler.get_comments(video_id)
-description = handler.get_channel_description(channel_id)
-video_descriptions = handler.get_channel_videos_descriptions(channel_id)
-
-# Для DataFrame вывода:
-comments_df = pd.DataFrame(comments)
-videos_df = pd.DataFrame(video_descriptions)
-
-handler.download_video(video_id=video_id)
-intro_video_url = handler.find_channel_intro(channel_id=channel_id)

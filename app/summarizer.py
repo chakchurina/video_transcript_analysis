@@ -14,14 +14,14 @@ class TextSummarizer:
         self.language = language
         self.stop_words = set(get_stop_words(language.upper()))
 
-    def summarize_with_textrank(self, text, sentences_count=10):
+    def summarize(self, text, sentences_count=10):
         parser = PlaintextParser.from_string(text, Tokenizer(self.language))
         summarizer = TextRankSummarizer()
         summary = summarizer(parser.document, sentences_count=sentences_count)
         return "\n".join(str(sentence) for sentence in summary)
 
-    def get_text_theme_keywords(self, df, num_clusters=1):
-
+    def get_keywords(self, df, num_clusters=1):  # todo remove cluster names
+        # todo тут не надо считать KMeans
         sentences = df['sentence'].tolist()
         embeddings = df['embedding'].tolist()
 
@@ -40,6 +40,6 @@ class TextSummarizer:
             cluster_words = [word for word in cluster_words if word not in self.stop_words]
             word_counts = Counter(cluster_words)
             most_common_words = word_counts.most_common(3)
-            cluster_keywords.append([word[0] for word in most_common_words])
+            cluster_keywords.extend([word[0] for word in most_common_words])
 
         return cluster_keywords

@@ -1,22 +1,21 @@
 import os
 import string
 import pandas as pd
+import pickle
 from sklearn.metrics.pairwise import cosine_similarity
 from openai import OpenAI
-from config.config import OPENAI_API_KEY, EMBEDDINGS_MODEL
 
-LONG = 35  # Максимальная длина предложения для разделения
-SHORT = 5  # Минимальная длина предложения для объединения
+from config.config import OPENAI_API_KEY, EMBEDDINGS_MODEL, EMBEDDINGS_PATH
 
 
 class DataProcessor:
-    # todo: preprocessor looks ad-hoc, I'd change it to be more universal
+    def __init__(self, data_path, file):
+        # todo измени то, что теперь мы работаем со ссылкой
+        # todo измени, чтобы не надо было читать файл, если он в кэше
+        self.file_path = os.path.join(data_path, file)
 
-    def __init__(self, data_path, file_names, file_index):
-        self.file_path = os.path.join(data_path, file_names[file_index])
-
-        self.raw_df = pd.read_csv(self.file_path)
-        self.raw_df.rename(columns={'length': 'time'}, inplace=True)
+        self.df = pd.read_csv(self.file_path)
+        self.df.rename(columns={'length': 'time'}, inplace=True)
 
     @staticmethod
     def tokenize(text):
@@ -25,64 +24,47 @@ class DataProcessor:
         words = text.split()
         return words
 
-    def add_aux_columns(self, df):
-        df['embedding'] = df['sentence'].apply(self.get_embeddings)
-        df['tokens'] = df['sentence'].apply(self.tokenize)
-        df['tempo'] = df['tokens'].apply(len) / df['time']
-        df['length'] = df['tokens'].apply(len)
-        df['question'] = df['sentence'].str.contains('\?')
-
-        return df
-
-    def add_time_codes(self, df):
-        start_times, end_times = [0], []
-        for i in range(1, len(df)):
-            start_times.append(start_times[i - 1] + df.loc[i - 1, 'time'])
-
-        df['start_time'] = start_times
-        df['end_time'] = df['start_time'] + df['time']
-
-        return df
-
     @staticmethod
-    def get_embeddings(text):
+    def calculate_embeddings(text):
         client = OpenAI(api_key=OPENAI_API_KEY)
         response = client.embeddings.create(input=text, model=EMBEDDINGS_MODEL)
         return response.data[0].embedding
 
-    def get_cosine_distance(self, embeddings):
+    @staticmethod
+    def get_cosine_distance(embeddings):
         cos_distances = [None]
         for i in range(1, len(embeddings)):
             cos_distance = cosine_similarity([embeddings[i - 1]], [embeddings[i]])[0][0]
             cos_distances.append(cos_distance)
         return cos_distances
 
-    def merge_sentences(self):
-        self.raw_df = self.add_aux_columns(self.raw_df)
-        self.raw_df['cos_dist'] = self.get_cosine_distance(self.raw_df['embedding'].tolist())
+    def add_aux_columns(self, df):
+        df['tokens'] = df['sentence'].apply(self.tokenize)
+        df['tempo'] = df['tokens'].apply(len) / df['time']
+        df['length'] = df['tokens'].apply(len)
+        df['question'] = df['sentence'].str.contains('\?')
 
-        similarity_cutoff = self.raw_df['cos_dist'].quantile(0.8)
-        close_indices = self.raw_df.index[self.raw_df['cos_dist'] > similarity_cutoff].tolist()
-        sentences, times = [self.raw_df.loc[0, 'sentence']], [self.raw_df.loc[0, 'time']]
+        # todo: found out late that there are pauses between phrases
+        offset = 0.23
+        df['time'] = df['time'] + offset
 
-        i = 1
-        while i < len(self.raw_df):
-            current, current_t, length = self.raw_df.loc[i, ['sentence', 'time', 'length']]
-            previous, previous_t = sentences[-1], times[-1]
-            if i in close_indices and length <= SHORT:
-                sentences[-1], times[-1] = previous + " " + current, previous_t + current_t
-            elif previous.endswith('...') and current.startswith('...'):
-                sentences[-1], times[-1] = previous[:-3] + " " + current[3:], previous_t + current_t
-            else:
-                sentences.append(current), times.append(current_t)
-            i += 1
-        return pd.DataFrame({'sentence': sentences, 'time': times})
+        df['start_time'] = df['time'].cumsum().shift(fill_value=0)
+        df['end_time'] = df['start_time'] + df['time']
 
-    def export_to_csv(self, df, filename):
-        df.to_csv(filename, index=False)
+    def add_embeddings(self, df, video_id):
+        embeddings_file = os.path.join(EMBEDDINGS_PATH, f'{video_id}.pkl')
+        if os.path.exists(embeddings_file):
+            print(f'Embeddings for {video_id} are already cached. Loading from pickle.')
+            # todo сделай нормально
+            with open(embeddings_file, 'rb') as file:
+                df['embedding'] = pickle.load(file)
+        else:
+            print(f'Calculating embeddings for {video_id}.')
+            df['embedding'] = df['sentence'].apply(self.calculate_embeddings)
+            with open(embeddings_file, 'wb') as file:
+                pickle.dump(df['embedding'].tolist(), file)
 
-    def prepare_data(self):
-        df = self.merge_sentences()
-        df = self.add_aux_columns(df)
-        df = self.add_time_codes(df)
-        return df
+    def prepare_data(self, video_id):
+        self.add_embeddings(self.df, video_id)
+        self.add_aux_columns(self.df)
+        return self.df

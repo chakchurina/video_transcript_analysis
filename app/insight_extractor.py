@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
 from app.preprocessor import DataProcessor
@@ -9,16 +8,17 @@ class InsightExtractor:
     def __init__(self, df):
         self.df = df
 
-    def extract_emotional_messages(self, emotional_threshold=0.5):
-        self.df['emotional'] = self.df['emotion_score'] > emotional_threshold
-        return self.df[self.df['emotional']]
+    def emotional_messages(self):
+        top_non_neutral_indices = sorted(self.df['emotion_score'].nlargest(8).index.tolist())
+        return top_non_neutral_indices
 
-    def extract_fast_responses(self, tempo_threshold=0.75):
+    def fast_phrases(self, tempo_threshold=0.75):
         fastest = self.df['tempo'].quantile(tempo_threshold)
         return self.df[
             (self.df['emotion_score'] > self.df['emotion_score'].quantile(0.5)) & (self.df['tempo'] > fastest)]
 
-    def find_question_answer_pairs(self):
+    def question_answer_pairs(self):
+        # todo refactor
         questions_df = self.df[self.df['question'] == True]
         statements_df = self.df[self.df['question'] == False]
 
@@ -31,21 +31,25 @@ class InsightExtractor:
 
         return closest_statements
 
-    def find_intros(df):
+    def extract_intros(self):
         similarity_threshold = 0.765
-        # todo ad-hoc threshold, very sorry
+        # one more ad-hoc threshold, very sorry
 
+        # hack to get all intro-like sentences
         request = "My name is Ankit Singla and I'm a full-time blogger. I blog about blogging. " \
                   "I'm Karen, an entrepreneur and VC consultant. " \
                   "Paul Erdős was a Hungarian mathematician. He was one of the most prolific " \
                   "mathematicians and producers of mathematical conjectures of the 20th century. " \
                   "This is Maria and she is a Data Engineer at Rask"
-        request_embedding = get_embeddings(request)
-        request_embedding = np.array(request_embedding).reshape(1, -1)  # Подготавливаем вектор запроса
+
+        request_embedding = DataProcessor.calculate_embeddings(request)
+        # Getting request embedding
+        request_embedding = np.array(request_embedding).reshape(1, -1)
 
         sentence_similarities = []
-        for index, row in df.iterrows():
-            embedding = np.array(row['embedding']).reshape(1, -1)  # Подготавливаем вектор предложения
+        for index, row in self.df.iterrows():
+            # Getting text embeddings
+            embedding = np.array(row['embedding']).reshape(1, -1)
             similarity = cosine_similarity(embedding, request_embedding)[0][0]
             if similarity > similarity_threshold:
                 sentence_similarities.append((index, row['sentence'], similarity))
@@ -53,7 +57,3 @@ class InsightExtractor:
         sorted_sentences = sorted(sentence_similarities, key=lambda x: x[2], reverse=True)
         print(sorted_sentences)
         return [{i: sentence} for i, sentence, _ in sorted_sentences]
-
-    intros = find_intros(df)
-    print(intros)
-
