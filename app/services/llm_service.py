@@ -34,7 +34,7 @@ class LLM(BaseTextProcessor):
         """
         context_string: str = "\n".join([f"{index}: {df.loc[index, 'sentence']}" for index in context])
         theme: str = ", ".join(keywords)
-        smallest: int = 5
+        smallest: int = 6
         largest: int = 10
 
         logging.info(f"Prompting with {smallest}, {largest}, sentence {sentence_number}")
@@ -67,7 +67,10 @@ class LLM(BaseTextProcessor):
             logging.error(f"Unexpected error: {e}")
             return []
 
-        return sentences
+        if smallest < len(sentences) < largest:
+            return sentences
+        else:
+            return []
 
     def validate(self, scripts: List[str], number: int) -> List[int]:
         """
