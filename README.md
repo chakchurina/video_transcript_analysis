@@ -62,7 +62,7 @@ Make sure you have Python 3.8+ and pip installed. Then, follow these steps:
 6. **Run the Application**:
    - Execute the main script to start processing your data.
      ```
-     python main.py
+     python app.py
      ```
      
 Look for resulting videos at `data/shorts/` and find the texts at `data/`.
