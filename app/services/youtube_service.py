@@ -8,7 +8,8 @@ from config.config import YOUTUBE_API_KEY, VIDEOS_PATH
 
 class YouTubeService:
     def __init__(self):
-        self.youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
+        # todo uncomment
+        # self.youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
         self.video_prefix = "https://www.youtube.com/watch?v="
 
     def get_comments(self, video_id):

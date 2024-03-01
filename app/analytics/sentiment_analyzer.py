@@ -6,7 +6,7 @@ from config.config import SENTIMENT_MODEL
 
 
 class SentimentAnalyzer:
-    # todo See if there's something I can throw away
+    # todo See if there's anything I can throw away
 
     def __init__(self):
         self.model_name = SENTIMENT_MODEL
@@ -20,13 +20,15 @@ class SentimentAnalyzer:
 
         scores = softmax(logits, dim=1)
         # todo refactor 
-        scores_dict = {label: score.item() for label, score in zip(['negative', 'neutral', 'positive'], scores[0])}
+        scores_dict = {label: score.item()
+                       for label, score
+                       in zip(['negative', 'neutral', 'positive'], scores[0])}
         return scores_dict
 
-    def apply_to_dataframe(self, df, text_column):
+    def apply_to_dataframe(self, df):
         non_neutrals, positives, negatives = [], [], []
 
-        for text in df[text_column]:
+        for text in df['sentence']:
             sentiment_scores = self.predict_sentiment(text)
             non_neutrals.append(1 - sentiment_scores['neutral'])
             positives.append(sentiment_scores['positive'])

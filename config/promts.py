@@ -29,17 +29,18 @@ Input:
 You have a sequence scripts for short videos in a format number:text. 
 
 Task:
-Choose from the provided fragments those that read as coherent and logical texts.
+Select from the provided fragments {n} distinct that read as coherent and logical texts. 
+Give preference to fragments that will be as different from each other as possible.
 
 Result: 
 Return comma-separated numbers of selected scripts.
 
 Example of the result: 
-1, 3, 4, 15, 21, 35
+1, 3, 4, 15, 21
 
-Transcript:
-{transcript}
+Scripts:
+{scripts}
 
 Restrictions:
-- output only comma-separated numbers.
+- output only {n} comma-separated numbers.
 """

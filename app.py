@@ -1,12 +1,10 @@
-import pandas as pd
-
-from app.data_processor import DataProcessor
-from app.analytics.sentiment_analyzer import SentimentAnalyzer
-from app.analytics.insight_extractor import InsightExtractor
+from app.analytics.preprocessor import DataProcessor
 from app.analytics.summarizer import TextSummarizer
+from app.analytics.insight_extractor import InsightExtractor
 from app.analytics.segmenter import TextSegmenter
+from app.services.llm_service import LLM
 from app.services.youtube_service import YouTubeService
-from app.services.openai_service import prompt_gpt  # todo refactor
+from app.video_editor import VideoEditor
 
 from config.config import TEXTS_PATH, VIDEOS
 
@@ -20,58 +18,52 @@ if __name__ == "__main__":
     # get video and comments from YouTube
     youtube = YouTubeService()
     video_id = youtube.extract_video_id(LINK)
-    youtube.download_video(video_id=video_id)
-    comments = youtube.get_comments(video_id)
+    # youtube.download_video(video_id=video_id)
+    # comments = youtube.get_comments(video_id)
 
     # preprocess transcript and add auxiliary columns
-    df = DataProcessor(TEXTS_PATH, TRANSCRIPT, video_id)
+    preprocessor = DataProcessor(TEXTS_PATH, TRANSCRIPT, video_id)
+    df = preprocessor.create_dataframe()
 
-    # try to enrich data using comments (disabled for now)
-    # comments_df = pd.DataFrame(comments)
-
-    text = ' '.join(df['sentence'])
-
-    # todo Sentiment Analysis move it to Insights Extractor
-
-    analyzer = SentimentAnalyzer()
-    analyzer.apply_to_dataframe(df, 'sentence')
-
-    # todo Sentiment Analysis
+    summarizer = TextSummarizer()
+    # get video keywords
+    theme_keywords = summarizer.get_keywords(df)
+    # get sentences that best describe the whole video
+    summary = summarizer.summarize(df, 3)
 
     extractor = InsightExtractor(df)
-    emotional = extractor.emotional_messages()
-    fast_responses = extractor.fast_phrases()
-    qa_pairs = extractor.question_answer_pairs()
-    intros = extractor.extract_intros()
-
     segmenter = TextSegmenter(df)
-    segmenter.segment_text(p_size=10)
+    llm = LLM()
 
-    # todo: сделать так, что этот кусок будет возвращать предложения
+    emotionals = extractor.emotional_messages()
+    questions = extractor.questions()
+    intros = extractor.intros()
 
-    # Пример использования:
-    summarizer = TextSummarizer()
+    texts = {}
+    for sentence_index in set(emotionals + questions + intros):
+        # Get 0 paragraphs before, 2 after and retrieve all relevant
+        consecutive = segmenter.get_consecutive(sentence_index, 0, 2)
+        closest = segmenter.get_n_closest(sentence_index, n=2)
+        context = list(sorted(set(consecutive + closest)))
 
-    # Резюмирование текста
-    summary = summarizer.summarize(text, 3)
-    print(summary)
+        context_string = "\n".join([f"{index}: {df.loc[index, 'sentence']}" for index in context])
 
-    # Получения ключевых слов темы текста
-    theme_keywords = summarizer.get_keywords(df)
+        generated = llm.generate(sentence_index, context_string, theme_keywords)
 
-    # todo: get the most commented part of video
+        text = ' '.join(df.loc[generated, 'sentence'])
+        texts.update({tuple(generated): text})
 
-    context_consecutive = segmenter.get_context(emotional[0], size=1)
-    context_closest = segmenter.get_cosine_closest_paragraphs(emotional[0], top_n=3)
-    context = set(context_consecutive + context_closest)
+    # todo
+    scripts = []
+    for i, (_, text) in enumerate(texts.items()):
+        scripts.append(f"{i}\n{text}\n\n")
 
-    context_df = df[df['segment'].isin(context)]
-    context_string = "\n".join([f"{index}: {row['sentence']}" for index, row in context_df.iterrows()])
+    selected = llm.validate(texts=scripts, number=5)
 
-    selected = prompt_gpt(emotional[0], context_string, theme_keywords)
-    generated_text = ' '.join(df.loc[selected, 'sentence'])
+    for entry in selected:
+        indexes_set = list(texts.keys())[entry]
+        text = ' '.join(df.loc[list(indexes_set), 'sentence'])
+        print(text)
 
-    # cutter = VideoEditor(video_id)
-    # cutter.cut_sentences_from_video(df, selected)
-
-    print(generated_text)
+        cutter = VideoEditor(video_id)
+        cutter.cut_sentences_from_video(df, selected)

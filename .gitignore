@@ -156,8 +156,13 @@ cython_debug/
 .vscode/
 
 data/embeddings/*
+!data/embeddings/.gitkeep
+
 data/shorts/*
+!data/shorts/.gitkeep
+
 data/videos/*
+!data/videos/.gitkeep
 
 .ipynb_checkpoints/
 .DS_Store

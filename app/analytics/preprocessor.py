@@ -1,20 +1,19 @@
 import os
-import string
 import pandas as pd
 import pickle
-from sklearn.metrics.pairwise import cosine_similarity
-from app.services.openai_service import calculate_embeddings
+
+from app.analytics.base_processor import BaseTextProcessor
 
 from config.config import EMBEDDINGS_PATH
 
 
-class DataProcessor:
+class DataProcessor(BaseTextProcessor):
     def __init__(self, data_path, file, video_id):
         self.file_path = os.path.join(data_path, file)
         self.video_id = video_id
         self.df = None
 
-    def process_data(self):
+    def create_dataframe(self):
         self.df = pd.read_csv(self.file_path)
 
         self.df.rename(columns={'length': 'time'}, inplace=True)
@@ -35,21 +34,6 @@ class DataProcessor:
 
         return self.df
 
-    @staticmethod
-    def tokenize(text):
-        text = text.lower()
-        text = text.translate(str.maketrans('', '', string.punctuation))
-        words = text.split()
-        return words
-
-    @staticmethod
-    def get_cosine_distance(embeddings):
-        cos_distances = [None]
-        for i in range(1, len(embeddings)):
-            cos_distance = cosine_similarity([embeddings[i - 1]], [embeddings[i]])[0][0]
-            cos_distances.append(cos_distance)
-        return cos_distances
-
     def add_embeddings(self, video_id):
         # todo add decent logging
         embeddings_file = os.path.join(EMBEDDINGS_PATH, f'{video_id}.pkl')
@@ -61,6 +45,6 @@ class DataProcessor:
                 self.df['embedding'] = pickle.load(file)
         else:
             print(f'Calculating embeddings for {video_id}.')
-            self.df['embedding'] = self.df['sentence'].apply(calculate_embeddings)
+            self.df['embedding'] = self.df['sentence'].apply(self.calculate_embeddings)
             with open(embeddings_file, 'wb') as file:
                 pickle.dump(self.df['embedding'].tolist(), file)

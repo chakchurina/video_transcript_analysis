@@ -4,10 +4,37 @@ import math
 from scipy.signal import argrelextrema
 from sklearn.metrics.pairwise import cosine_similarity
 
+from app.analytics.base_processor import BaseTextProcessor
 
-class TextSegmenter:
+
+class TextSegmenter(BaseTextProcessor):
     def __init__(self, df):
+        # To find sentence context, first split the text, and then get the relevant blocks
         self.df = df
+        self.segment_text(p_size=10)
+
+    def get_n_closest(self, sentence_index, n):
+        # Use cosine distance to find other relevant parts
+        sentence_embedding = np.array(self.df.loc[sentence_index, 'embedding']).reshape(1, -1)
+
+        closest_indexes = self.top_n_closest(sentence_embedding, self.df, n)
+        closest_paragraphs = self.df.loc[closest_indexes, 'segment'].unique().tolist()
+        context_indices = self.df[self.df['segment'].isin(closest_paragraphs)].index.tolist()
+
+        # todo log it
+        # context_string = "\n".join([f"{index}: {row['sentence']}" for index, row in context_df.iterrows()])
+        return context_indices
+
+    def get_consecutive(self, sentence_number, back=2, forward=2):
+        # Assuming that consecutive paragraphs have semantic relation
+        paragraph = self.df.loc[sentence_number, 'segment']
+
+        # todo cover with units
+        start_paragraph = paragraph - back
+        end_paragraph = paragraph + forward
+
+        context = self.df.loc[self.df['segment'].between(start_paragraph, end_paragraph)].index.tolist()
+        return list(sorted(context))
 
     def rev_sigmoid(self, x: float) -> float:
         return 1 / (1 + math.exp(0.5 * x))
@@ -26,7 +53,7 @@ class TextSegmenter:
 
         return activated_similarities
 
-    def segment_text(self, p_size=10):  # todo replace p_size
+    def segment_text(self, p_size=10):
 
         embeddings_matrix = np.array(self.df['embedding'].tolist())
         cosine_sim_matrix = cosine_similarity(embeddings_matrix)
@@ -45,24 +72,3 @@ class TextSegmenter:
             segment_numbers.append(segment_number)
 
         self.df['segment'] = segment_numbers
-
-    def get_context(self, n, size):
-        paragraph = self.df.loc[n, 'segment']
-
-        start_paragraph = max(0, paragraph - size)
-        end_paragraph = paragraph + size  # todo учесть длину df
-
-        return list(range(start_paragraph, end_paragraph))
-
-    def get_cosine_closest_paragraphs(self, target_sentence_index, top_n=5):
-        # Вычисляем косинусную схожесть между целевым предложением и всеми остальными
-        target_embedding = np.array(self.df.loc[target_sentence_index, 'embedding']).reshape(1, -1)
-        all_embeddings = np.array(self.df['embedding'].tolist())
-        similarities = cosine_similarity(target_embedding, all_embeddings)[0]
-
-        # Находим индексы топ-N ближайших предложений
-        closest_indices = np.argsort(similarities)[::-1][
-                          1:top_n + 1]  # +1 чтобы исключить само целевое предложение
-
-        closest_paragraphs = self.df.loc[closest_indices, 'segment'].unique().tolist()
-        return closest_paragraphs
