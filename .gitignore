@@ -155,9 +155,5 @@ cython_debug/
 .idea/
 .vscode/
 
-data/embeddings/*
-data/shorts/*
-data/videos/*
-
 .ipynb_checkpoints/
 .DS_Store
