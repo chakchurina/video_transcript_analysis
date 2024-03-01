@@ -6,7 +6,7 @@ Hello, Brask Team!
 
 Thank you for the opportunity and the test assignment! It was genuinely fun and engaging.
 
-You requested an explorative analysis, but as a practice-oriented person, I discovered during my research that video segmentation was possible, so I went ahead and implemented it.
+You requested an explorative analysis, but as a practice-oriented person, I discovered during my research that sensible video segmentation was possible, so I went ahead and implemented it.
 
 In this repository, you'll find a small service that executes such segmentation. The main idea revolves around:
 - Attempting to identify the most vivid parts of the text (using sentiment analysis, text themes, etc.),
