@@ -1,5 +1,5 @@
-OPENAI_API_KEY = "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"
-YOUTUBE_API_KEY = "AIzaSyAAD5vikUMvBwj1xUyDW4YyGKneIQvdk_U"  # todo: remove keys
+OPENAI_API_KEY = "YOUR_KEY"
+YOUTUBE_API_KEY = "YOUR_KEY"
 
 EMBEDDINGS_MODEL = "text-embedding-ada-002"
 GPT_MODEL = "gpt-4-turbo-preview"
