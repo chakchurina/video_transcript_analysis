@@ -4,7 +4,7 @@
 
 Hello, Brask Team!
 
-Thank you for the opportunity and the test assignment! It was genuinely fun and quite engaging.
+Thank you for the opportunity and the test assignment! It was genuinely fun and engaging.
 
 You requested an explorative analysis, but as a practice-oriented person, I discovered during my research that video segmentation was possible, so I went ahead and implemented it.
 
