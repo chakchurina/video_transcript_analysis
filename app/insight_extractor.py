@@ -1,15 +1,16 @@
 import logging
 import numpy as np
 import pandas as pd
+from typing import Tuple, List
 
-from typing import List
-from app.analytics.sentiment_analyzer import SentimentAnalyzer
 from app.analytics.base_processor import BaseTextProcessor
+from app.analytics.sentiment_analyzer import SentimentAnalyzer
+from app.analytics.summarizer import TextSummarizer
 
 
 class InsightExtractor(BaseTextProcessor):
     """
-    Extracts insights such as emotional messages, questions, and intros from a given DataFrame.
+    Extracts insights such as outstanding sentences or summaries from a given DataFrame.
     """
 
     def __init__(self, df: pd.DataFrame) -> None:
@@ -20,39 +21,39 @@ class InsightExtractor(BaseTextProcessor):
             df (pd.DataFrame): The DataFrame to analyze.
         """
         self.df = df
-        self.analyzer = SentimentAnalyzer()
-        self.analyzer.apply_to_dataframe(self.df)
-        logging.info("Sentiment analysis applied to DataFrame.")
 
-    def emotional_messages(self) -> List[int]:
+        self.analyzer = SentimentAnalyzer()
+        self.summarizer = TextSummarizer()
+
+    def emotional_messages(self, n=10) -> List[int]:
         """
         Identifies the top non-neutral sentences based on emotion scores.
 
         Returns:
             List[int]: Indices of top non-neutral sentences.
         """
-        top_non_neutral_indices = sorted(self.df['emotion_score'].nlargest(10).index.tolist())
+        top_non_neutral_indices = sorted(self.df['emotion_score'].nlargest(n).index.tolist())
         return top_non_neutral_indices
 
-    def questions(self) -> List[int]:
+    def questions(self, n=10) -> List[int]:
         """
         Filters sentences that are questions and returns indices of the most emotional
-        questions if there are more than 10 questions.
+        questions if there are more than n questions.
 
         Returns:
             List[int]: Indices of the most emotional questions or all questions if 10 or less.
         """
         questions_df = self.df[self.df['question']]
 
-        if len(questions_df) > 10:
+        if len(questions_df) >= n:
             questions_df = questions_df.sort_values(by='emotion_score', ascending=False)
-            question_indices = questions_df.index[:10].tolist()
+            question_indices = questions_df.index[:n].tolist()
         else:
             question_indices = questions_df.index.tolist()
 
         return question_indices
 
-    def intros(self) -> List[int]:
+    def intros(self, n=10) -> List[int]:
         """
         Identifies sentences that resemble introductions.
 
@@ -70,21 +71,38 @@ class InsightExtractor(BaseTextProcessor):
         request_embedding = np.array(request_embedding).reshape(1, -1)
 
         indices = self.threshold_closest(request_embedding, self.df, threshold=threshold)
-        return indices
+        return indices[:n]
 
-    def get_highlights(self) -> List[int]:
+    def get_highlights(self, n) -> List[int]:
         """
         Combines emotional messages, questions, and intros to identify key insights.
 
         Returns:
             List[int]: Combined list of unique indices representing key insights.
         """
-        emotionals = self.emotional_messages()
-        questions = self.questions()
-        intros = self.intros()
+        self.analyzer.apply_to_dataframe(self.df)
+        logging.info("Sentiment analysis applied to DataFrame.")
+
+        emotionals = self.emotional_messages(n)
+        questions = self.questions(n)
+        intros = self.intros(n)
 
         highlights = list(set(emotionals + questions + intros))
         logging.info(f"Extracted {len(highlights)} highlights from the DataFrame: "
                      f"emotionals: {len(emotionals)}, questions: {len(questions)}, intros: {len(intros)}.")
 
         return highlights
+
+    def get_summary(self, n) -> Tuple[List[str], List[int]]:
+        """
+        Get a summary of the text data contained within the DataFrame.
+
+        Returns:
+            Tuple[List[str], List[int]]: A tuple containing two elements:
+                - A list of keywords extracted from the text data.
+                - A list of indices of the sentences that form the summary.
+        """
+        keywords: List[str] = self.summarizer.get_keywords(self.df)
+        summary: List[int] = self.summarizer.summarize(self.df, n)
+
+        return keywords, summary

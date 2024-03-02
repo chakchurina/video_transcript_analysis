@@ -1,9 +1,8 @@
 import logging
 from typing import List, Any
-
 from pandas import DataFrame
-from app.analytics.base_processor import BaseTextProcessor
 
+from app.analytics.base_processor import BaseTextProcessor
 from config.config import GPT_MODEL
 from config.prompts import get_sentences_prompt_template, verification_prompt_template
 

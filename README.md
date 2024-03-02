@@ -17,11 +17,12 @@ You'll find the prompts and all the modules needed for this analysis inside. I a
 
 **What's Missing**
 - Lack of precise time-codes from phrases: I estimated based on sentence durations, but the video splice was not high quality. I chose not to calculate directly from the video to save time.
-- Absence of a Docker, and all other development attributes, but I decided it wasn't the focus of the assignment and didn't spend time on them. Mainly, I wanted to achieve a practical result.
+- Absence of Docker, and all other development attributes, but I decided it wasn't the focus of the assignment and didn't spend time on them. Mainly, I wanted to achieve a practical result.
 
 **Ideas I Had But Didn't Implement**
 
 - I tried enriching the dataset with YouTube comments — they could help identify frequently commented spots. YouTube doesn't provide hotspots, but extracting them would seem like a good idea.
+- I would also try to operate not on individual sentences, but rather on pairs, triplets, or entire paragraphs.
 - Choosing themes for shorts based on channel descriptions or YouTube topics might improve views for a specific blogger.
 - If video processing speed isn't an issue, exploring the video with Computer Vision to alternate shots and make the cuts neater could be tried. 
 - Based on sentiment analysis, I would create a small meme library — they could be added to the video at moments with high scores.

@@ -74,7 +74,6 @@ class BaseTextProcessor:
 
         Returns:
             A list of indices for sentences in df that are above the similarity threshold.
-            But still no longer than 10
         """
         sentence_similarities = []
         for index, row in df.iterrows():
@@ -84,4 +83,4 @@ class BaseTextProcessor:
                 sentence_similarities.append((index, similarity))
 
         sorted_sentences = sorted(sentence_similarities, key=lambda x: x[1], reverse=True)
-        return [i for i, _ in sorted_sentences][:10]
+        return [i for i, _ in sorted_sentences]
