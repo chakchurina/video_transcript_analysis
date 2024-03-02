@@ -35,8 +35,8 @@ class VideoAnalysisPipeline:
         self.download_video()
         self.process_transcript()
         self.analyze_content()
+        self.save_texts()
         self.edit_videos()
-        self.save_results()
 
     def download_video(self) -> None:
         """
@@ -72,13 +72,15 @@ class VideoAnalysisPipeline:
             closest: List[int] = segmenter.get_n_closest(sentence_index, n=2)
             context: List[int] = sorted(set(consecutive + closest))
 
-            generated: List[int] = llm.generate(self.df, sentence_index, context, keywords)
+            generated: Tuple[int] = llm.generate(self.df, sentence_index, context, keywords)
 
-            text: str = ' '.join(self.df.loc[generated, 'sentence'])
-            raws[tuple(generated)] = text
+            text: str = ' '.join(self.df.loc[list(generated), 'sentence'])
 
-        texts: List[str] = [f"{i}\n{text}\n\n" for i, (_, text) in enumerate(raws.items())]
-        selected: List[int] = llm.validate(scripts=texts, number=5)
+            if generated and generated not in raws:
+                raws[tuple(generated)] = text
+
+        texts = "\n\n".join(f"{i}:\n{text}" for i, text in enumerate(raws.values()))
+        selected: List[int] = llm.validate(scripts=texts, largest=5)
 
         for i, entry in enumerate(selected):
             indices: Tuple[int] = list(raws.keys())[entry]
@@ -93,7 +95,7 @@ class VideoAnalysisPipeline:
             logging.info(f"Cutting script: {text}")
             VideoEditor.create_video(self.df, indices, self.video_id, i)
 
-    def save_results(self) -> None:
+    def save_texts(self) -> None:
         """
         Saves the generated text to a file for further reference.
         """

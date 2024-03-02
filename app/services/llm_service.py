@@ -1,5 +1,5 @@
 import logging
-from typing import List, Any
+from typing import Tuple, List, Any
 from pandas import DataFrame
 
 from app.analytics.base_processor import BaseTextProcessor
@@ -17,10 +17,9 @@ class LLM(BaseTextProcessor):
         """
         self.model: str = GPT_MODEL
 
-    def generate(self, df: DataFrame, sentence_number: int, context: List[int], keywords: List[str]) -> List[int]:
+    def generate(self, df: DataFrame, sentence_number: int, context: List[int], keywords: List[str]) -> Tuple[int, ...]:
         """
-        Generates a list of sentence numbers based on the input DataFrame, context,
-        sentence number, and keywords.
+        Generates a list of sentence numbers based on the sentence number and its context.
 
         Args:
             df: DataFrame containing the data.
@@ -36,14 +35,11 @@ class LLM(BaseTextProcessor):
         smallest: int = 6
         largest: int = 10
 
-        logging.info(f"Prompting with {smallest}, {largest}, sentence {sentence_number}")
-
         prompt_text: str = get_sentences_prompt_template.format(
             smallest=smallest,
             largest=largest,
             theme=theme,
             central=sentence_number,
-            keywords=keywords,
             transcript=context_string
         )
 
@@ -58,31 +54,31 @@ class LLM(BaseTextProcessor):
             )
 
             text: str = response.choices[0].message.content
-            sentences: List[int] = list(map(int, text.split(",")))
+            sentences: Tuple[int] = tuple(map(int, text.split(",")))
         except ValueError as e:
             logging.error(f"Error processing model output: {e}")
-            return []
+            return ()
         except Exception as e:
             logging.error(f"Unexpected error: {e}")
-            return []
+            return ()
 
-        if smallest < len(sentences) < largest:
+        if smallest <= len(sentences) <= largest:
             return sentences
         else:
-            return []
+            return ()
 
-    def validate(self, scripts: List[str], number: int) -> List[int]:
+    def validate(self, scripts: str, largest: int) -> List[int]:
         """
         Validates a given list of scripts against a specified number using the model.
 
         Args:
             scripts: A list of scripts to be validated.
-            number: The number against which the validation is to be performed.
+            largest: The number against which the validation is to be performed.
 
         Returns:
             A list of integers representing validation results.
         """
-        prompt_text: str = verification_prompt_template.format(scripts=scripts, n=number)
+        prompt_text: str = verification_prompt_template.format(scripts=scripts, n=largest)
 
         try:
             response: Any = self.client.chat.completions.create(
@@ -103,4 +99,7 @@ class LLM(BaseTextProcessor):
             logging.error(f"Unexpected error: {e}")
             return []
 
-        return numbers
+        if len(numbers) <= largest:
+            return numbers
+        else:
+            return []

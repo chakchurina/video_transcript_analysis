@@ -1,14 +1,14 @@
-get_sentences_prompt_template = """
-Input:
-You have part of a podcast transcript with sentence numbers in a format <number: sentence>. 
+get_sentences_prompt_template = """Input:
+You have a part of a podcast transcript with sentence numbers in a format <number: sentence>. 
 
 Task:
-Select sentences from the input text, so that they tell a coherent story.
+Select sentences from the input text, so that they tell a coherent story. 
 
 Additionally:
-Think about placing sentence that contain {keywords} first. 
-Try to include sentence number {central} in the sequence, if it fits.
-Consider adding sentence that has conclusion, generalisation or prognosis, at the end of sequence.
+- Try to choose sentences so that the selection conveys only one idea.
+- Think about placing first the sentence that contains one of the words: {theme}. 
+- Try to include sentence number {central} in the sequence, if it fits.
+- Consider adding sentence that has conclusion, generalisation or prognosis, at the end of sequence.
 
 Result: 
 Return comma-separated numbers of the sentences that form a readable text.
@@ -24,9 +24,8 @@ Restrictions:
 - there MUST be at least {smallest} sentences in response, but no mora than {largest}.
 """
 
-verification_prompt_template = """
-Input:
-You have a sequence scripts for short videos in a format number:text. 
+verification_prompt_template = """Input:
+You have a sequence of scripts for short videos in a format number: text. 
 
 Task:
 Select from the provided fragments {n} distinct that read as coherent and logical texts. 
@@ -42,5 +41,5 @@ Scripts:
 {scripts}
 
 Restrictions:
-- output only {n} comma-separated numbers.
+- output up to {n} comma-separated numbers.
 """
