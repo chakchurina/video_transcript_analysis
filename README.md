@@ -1,8 +1,8 @@
 # Video Transcript Analysis
 
-Welcome to the Video Transcript Analysis project! This repository is dedicated to exploring ways to analyze longer video to highlight the most engaging and meaningful parts of the content. The aim is to enhance video storytelling and content creation through data-driven insights. This repository contains code that analyzes podcasts' transcripts and creates shorter videos from it. 
+Welcome to the Video Transcript Analysis project! This repository is dedicated to exploring ways to analyze longer video to highlight the most engaging and meaningful parts of the content. The aim is to analyze longer podcasts' transcripts and create shorter videos from it. 
 
-In this repository, you'll find a small service that executes such segmentation. The main idea revolves around:
+This service executes such segmentation. The main idea revolves around:
 - Attempting to identify the most vivid parts of the text (using sentiment analysis, topic modeling, etc.),
 - Finding the context of these highlights through cosine distance,
 - And prompting Chat GPT to form short stories from these sentences.
